@@ -73,7 +73,7 @@ void MeshNode::draw()
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
         
         glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_TRUE, 0, 0);
+        glVertexAttribPointer(1, 4, GL_FLOAT, GL_TRUE, 0, 0);
         
         auto mvp = glGetUniformLocation(program->getId(), "MVP");
         auto matrix = getMatrix();

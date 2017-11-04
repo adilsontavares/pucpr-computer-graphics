@@ -53,3 +53,8 @@ Color Color::gray()
 {
     return Color(0.5, 0.5, 0.5);
 }
+
+Color Color::withAlpha(GLfloat a)
+{
+    return Color(r, g, b, a);
+}

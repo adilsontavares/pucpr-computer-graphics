@@ -29,6 +29,8 @@ public:
     static Color black();
     static Color gray();
     static Color white();
+    
+    Color withAlpha(GLfloat a);
 };
 
 #endif /* Color_hpp */

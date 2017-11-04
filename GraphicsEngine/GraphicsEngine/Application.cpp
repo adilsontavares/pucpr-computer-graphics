@@ -90,7 +90,10 @@ void Application::setupGlew()
 
 void Application::setupGL()
 {
-    glClearColor(0.2, 0.2, 0.2, 1.0);
+    glClearColor(1, 0, 0, 1.0);
+    
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 Application::~Application()
