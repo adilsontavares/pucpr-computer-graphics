@@ -31,7 +31,7 @@ public:
     
     glm::mat4 getMatrix();
     
-private:
+protected:
     
     Vector3 position;
     Vector3 rotation;
