@@ -8,6 +8,7 @@
 
 #include "Cylinder.hpp"
 #include <cmath>
+#include <cassert>
 #include "Color.hpp"
 
 Cylinder::Cylinder(GLfloat radius, GLfloat height, GLuint divisions) : Primitive()
