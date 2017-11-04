@@ -11,7 +11,7 @@
 #include "File.hpp"
 #include "MeshNode.hpp"
 #include "Color.hpp"
-#include "Box.hpp"
+#include "Cube.hpp"
 
 using namespace std;
 
@@ -45,9 +45,8 @@ void Application::run()
 
 void Application::setupNodes()
 {
-    auto box = new Box(1, 1, 1);
+    auto box = new Cube(0.3);
     auto node = new MeshNode(box);
-    node->setScale(Vector3(0.7));
     
     addChild(node);
 }

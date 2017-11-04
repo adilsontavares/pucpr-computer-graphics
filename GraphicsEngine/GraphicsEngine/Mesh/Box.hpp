@@ -17,6 +17,10 @@ public:
     
     Box(GLfloat width, GLfloat height, GLfloat depth);
     
+    void setWidth(GLfloat width);
+    void setHeight(GLfloat height);
+    void setDepth(GLfloat depth);
+    
 protected:
     
     GLfloat width;

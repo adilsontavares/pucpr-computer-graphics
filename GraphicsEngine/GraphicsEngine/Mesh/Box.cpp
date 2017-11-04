@@ -82,3 +82,21 @@ void Box::resetMesh()
     setColors(colors, 8);
     setFaces(faces, 36);
 }
+
+void Box::setWidth(GLfloat width)
+{
+    this->width = width;
+    resetMesh();
+}
+
+void Box::setHeight(GLfloat height)
+{
+    this->height = height;
+    resetMesh();
+}
+
+void Box::setDepth(GLfloat depth)
+{
+    this->depth = depth;
+    resetMesh();
+}

@@ -28,6 +28,7 @@
 		BBCB42B71FAD246A0050C4E1 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42B51FAD246A0050C4E1 /* Vector3.cpp */; };
 		BBCB42BA1FAD47E10050C4E1 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42B81FAD47E10050C4E1 /* Color.cpp */; };
 		BBCB42C01FAD551F0050C4E1 /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42BE1FAD551F0050C4E1 /* Box.cpp */; };
+		BBCB42C41FAD5D780050C4E1 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42C21FAD5D780050C4E1 /* Cube.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +81,8 @@
 		BBCB42B91FAD47E10050C4E1 /* Color.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Color.hpp; sourceTree = "<group>"; };
 		BBCB42BE1FAD551F0050C4E1 /* Box.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Box.cpp; sourceTree = "<group>"; };
 		BBCB42BF1FAD551F0050C4E1 /* Box.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Box.hpp; sourceTree = "<group>"; };
+		BBCB42C21FAD5D780050C4E1 /* Cube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
+		BBCB42C31FAD5D780050C4E1 /* Cube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cube.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,12 +142,9 @@
 				BBCB42A41FAD19E90050C4E1 /* Program.hpp */,
 				BBCB42AC1FAD1F060050C4E1 /* Node.cpp */,
 				BBCB42AD1FAD1F060050C4E1 /* Node.hpp */,
-				BBCB42AF1FAD1F300050C4E1 /* Mesh.cpp */,
-				BBCB42B01FAD1F300050C4E1 /* Mesh.hpp */,
 				BBCB42B21FAD212C0050C4E1 /* MeshNode.cpp */,
 				BBCB42B31FAD212C0050C4E1 /* MeshNode.hpp */,
-				BBCB42BE1FAD551F0050C4E1 /* Box.cpp */,
-				BBCB42BF1FAD551F0050C4E1 /* Box.hpp */,
+				BBCB42C11FAD5D6A0050C4E1 /* Mesh */,
 				BBCB42A21FAD19C90050C4E1 /* Shaders */,
 			);
 			path = GraphicsEngine;
@@ -171,6 +171,19 @@
 				BBCB429C1FAD11370050C4E1 /* Simple.fs */,
 			);
 			path = Shaders;
+			sourceTree = "<group>";
+		};
+		BBCB42C11FAD5D6A0050C4E1 /* Mesh */ = {
+			isa = PBXGroup;
+			children = (
+				BBCB42AF1FAD1F300050C4E1 /* Mesh.cpp */,
+				BBCB42B01FAD1F300050C4E1 /* Mesh.hpp */,
+				BBCB42BE1FAD551F0050C4E1 /* Box.cpp */,
+				BBCB42BF1FAD551F0050C4E1 /* Box.hpp */,
+				BBCB42C21FAD5D780050C4E1 /* Cube.cpp */,
+				BBCB42C31FAD5D780050C4E1 /* Cube.hpp */,
+			);
+			path = Mesh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBCB42C41FAD5D780050C4E1 /* Cube.cpp in Sources */,
 				BBCB42A51FAD19E90050C4E1 /* Program.cpp in Sources */,
 				BBCB42AE1FAD1F060050C4E1 /* Node.cpp in Sources */,
 				BBCB42A81FAD1B090050C4E1 /* FragmentShader.cpp in Sources */,
