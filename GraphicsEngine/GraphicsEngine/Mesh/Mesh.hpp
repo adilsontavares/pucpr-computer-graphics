@@ -28,6 +28,10 @@ public:
     void setColors(Color *colors, GLuint count);
     
     void assertConsistency();
+    
+protected:
+    
+    GLuint loopVertexIndex(GLuint index);
 };
 
 #endif /* Mesh_hpp */

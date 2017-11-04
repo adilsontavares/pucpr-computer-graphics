@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB7131A91FAE558400481B94 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7131A71FAE558400481B94 /* Cylinder.cpp */; };
 		BBCB42801FAD07570050C4E1 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = BBCB427F1FAD07570050C4E1 /* main.mm */; };
 		BBCB42891FAD07700050C4E1 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB42881FAD07700050C4E1 /* libGLEW.a */; };
 		BBCB428B1FAD077B0050C4E1 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB428A1FAD077B0050C4E1 /* libglfw3.a */; };
@@ -49,6 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BB7131A71FAE558400481B94 /* Cylinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cylinder.cpp; sourceTree = "<group>"; };
+		BB7131A81FAE558400481B94 /* Cylinder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cylinder.hpp; sourceTree = "<group>"; };
 		BBCB427C1FAD07570050C4E1 /* GraphicsEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GraphicsEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBCB427F1FAD07570050C4E1 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		BBCB42871FAD07610050C4E1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -197,6 +200,8 @@
 				BBCB42C61FAD5EBC0050C4E1 /* Cone.hpp */,
 				BBCB42CB1FAD65780050C4E1 /* Sphere.cpp */,
 				BBCB42CC1FAD65780050C4E1 /* Sphere.hpp */,
+				BB7131A71FAE558400481B94 /* Cylinder.cpp */,
+				BB7131A81FAE558400481B94 /* Cylinder.hpp */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				BBCB42AB1FAD1B110050C4E1 /* VertexShader.cpp in Sources */,
 				BBCB42B71FAD246A0050C4E1 /* Vector3.cpp in Sources */,
 				BBCB42B11FAD1F300050C4E1 /* Mesh.cpp in Sources */,
+				BB7131A91FAE558400481B94 /* Cylinder.cpp in Sources */,
 				BBCB42C01FAD551F0050C4E1 /* Box.cpp in Sources */,
 				BBCB42801FAD07570050C4E1 /* main.mm in Sources */,
 				BBCB42B41FAD212C0050C4E1 /* MeshNode.cpp in Sources */,

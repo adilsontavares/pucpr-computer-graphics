@@ -11,7 +11,7 @@
 #include "File.hpp"
 #include "MeshNode.hpp"
 #include "Color.hpp"
-#include "Sphere.hpp"
+#include "Cylinder.hpp"
 
 using namespace std;
 
@@ -45,7 +45,7 @@ void Application::run()
 
 void Application::setupNodes()
 {
-    auto mesh = new Sphere(0.4, 3);
+    auto mesh = new Cylinder(0.2, 0.8, 15);
     auto node = new MeshNode(mesh);
     
     addChild(node);
@@ -59,7 +59,7 @@ void Application::update()
     for (auto node : nodes)
     {
         node->setPosition(Vector3(0, 0, 0.5));
-        node->setRotation(Vector3(0, rot, 0));
+        node->setRotation(Vector3(45, rot, 0));
         node->update(0);
     }
 }

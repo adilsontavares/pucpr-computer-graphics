@@ -62,3 +62,8 @@ void Mesh::assertConsistency()
         assert(false);
     }
 }
+
+GLuint Mesh::loopVertexIndex(GLuint index)
+{
+    return index % vertices.size();
+}
