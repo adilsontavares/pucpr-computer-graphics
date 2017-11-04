@@ -20,6 +20,10 @@ public:
     
     void use();
     
+    static Program *simple();
+    
+    GLuint getId();
+    
 private:
     
     GLuint id;

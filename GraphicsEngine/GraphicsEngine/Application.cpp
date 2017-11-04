@@ -9,7 +9,8 @@
 #include "Application.hpp"
 #include <cassert>
 #include "File.hpp"
-#include "Program.hpp"
+#include "MeshNode.hpp"
+#include "Color.hpp"
 
 #include "VertexShader.hpp"
 #include "FragmentShader.hpp"
@@ -45,36 +46,29 @@ void Application::run()
 
 void Application::mainLoop()
 {
-    float points[] = {
-        0, 0.5, 0,
-        0.5, -0.5, 0,
-        -0.5, -0.5, 0
-    };
+    Mesh *mesh = new Mesh();
+    mesh->setVertices((Vector3[]){
+        Vector3(0, 0, 0),
+        Vector3(1, 1, 0),
+        Vector3(1, 0, 0),
+        Vector3(1, -1, 0)
+    }, 4);
     
-    GLuint vbo;
-    glGenBuffers(1, &vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), points, GL_STATIC_DRAW);
+    mesh->setFaces((GLuint[]) { 0, 1, 2, 2, 3, 0 }, 6);
+    mesh->setColors((Color[]) {
+        Color::red(),
+        Color::green(),
+        Color::blue()
+    }, 3);
     
-    GLuint vao;
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
-    glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-    
-    Shader *vertex = new VertexShader("assets/Shader.vs");
-    Shader *fragment = new FragmentShader("assets/Shader.fs");
-    Program *program = new Program(vertex, fragment);
+    auto node = new MeshNode();
+    node->setMesh(mesh);
     
     while (!glfwWindowShouldClose(window))
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        program->use();
-        glBindVertexArray(vao);
-        
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        node->draw();
         
         glfwPollEvents();
         glfwSwapBuffers(window);

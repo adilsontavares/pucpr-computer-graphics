@@ -16,12 +16,17 @@
 		BBCB42961FAD0CFA0050C4E1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB42941FAD0CF30050C4E1 /* IOKit.framework */; };
 		BBCB42971FAD0CFB0050C4E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB42951FAD0CF70050C4E1 /* Foundation.framework */; };
 		BBCB42991FAD0D0E0050C4E1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB42981FAD0D090050C4E1 /* CoreVideo.framework */; };
-		BBCB429D1FAD13910050C4E1 /* Shader.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBCB429B1FAD112B0050C4E1 /* Shader.vs */; };
-		BBCB429E1FAD13930050C4E1 /* Shader.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBCB429C1FAD11370050C4E1 /* Shader.fs */; };
+		BBCB429D1FAD13910050C4E1 /* Simple.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBCB429B1FAD112B0050C4E1 /* Simple.vs */; };
+		BBCB429E1FAD13930050C4E1 /* Simple.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBCB429C1FAD11370050C4E1 /* Simple.fs */; };
 		BBCB42A11FAD14F60050C4E1 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB429F1FAD14F60050C4E1 /* Shader.cpp */; };
 		BBCB42A51FAD19E90050C4E1 /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42A31FAD19E90050C4E1 /* Program.cpp */; };
 		BBCB42A81FAD1B090050C4E1 /* FragmentShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42A61FAD1B090050C4E1 /* FragmentShader.cpp */; };
 		BBCB42AB1FAD1B110050C4E1 /* VertexShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42A91FAD1B110050C4E1 /* VertexShader.cpp */; };
+		BBCB42AE1FAD1F060050C4E1 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42AC1FAD1F060050C4E1 /* Node.cpp */; };
+		BBCB42B11FAD1F300050C4E1 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42AF1FAD1F300050C4E1 /* Mesh.cpp */; };
+		BBCB42B41FAD212C0050C4E1 /* MeshNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42B21FAD212C0050C4E1 /* MeshNode.cpp */; };
+		BBCB42B71FAD246A0050C4E1 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42B51FAD246A0050C4E1 /* Vector3.cpp */; };
+		BBCB42BA1FAD47E10050C4E1 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42B81FAD47E10050C4E1 /* Color.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,8 +36,8 @@
 			dstPath = assets;
 			dstSubfolderSpec = 16;
 			files = (
-				BBCB429D1FAD13910050C4E1 /* Shader.vs in CopyFiles */,
-				BBCB429E1FAD13930050C4E1 /* Shader.fs in CopyFiles */,
+				BBCB429D1FAD13910050C4E1 /* Simple.vs in CopyFiles */,
+				BBCB429E1FAD13930050C4E1 /* Simple.fs in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +57,8 @@
 		BBCB42951FAD0CF70050C4E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BBCB42981FAD0D090050C4E1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		BBCB429A1FAD108D0050C4E1 /* File.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = File.hpp; sourceTree = "<group>"; };
-		BBCB429B1FAD112B0050C4E1 /* Shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.vs; sourceTree = "<group>"; };
-		BBCB429C1FAD11370050C4E1 /* Shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.fs; sourceTree = "<group>"; };
+		BBCB429B1FAD112B0050C4E1 /* Simple.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Simple.vs; sourceTree = "<group>"; };
+		BBCB429C1FAD11370050C4E1 /* Simple.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Simple.fs; sourceTree = "<group>"; };
 		BBCB429F1FAD14F60050C4E1 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		BBCB42A01FAD14F60050C4E1 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		BBCB42A31FAD19E90050C4E1 /* Program.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
@@ -62,6 +67,16 @@
 		BBCB42A71FAD1B090050C4E1 /* FragmentShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FragmentShader.hpp; sourceTree = "<group>"; };
 		BBCB42A91FAD1B110050C4E1 /* VertexShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexShader.cpp; sourceTree = "<group>"; };
 		BBCB42AA1FAD1B110050C4E1 /* VertexShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexShader.hpp; sourceTree = "<group>"; };
+		BBCB42AC1FAD1F060050C4E1 /* Node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		BBCB42AD1FAD1F060050C4E1 /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
+		BBCB42AF1FAD1F300050C4E1 /* Mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		BBCB42B01FAD1F300050C4E1 /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
+		BBCB42B21FAD212C0050C4E1 /* MeshNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MeshNode.cpp; sourceTree = "<group>"; };
+		BBCB42B31FAD212C0050C4E1 /* MeshNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MeshNode.hpp; sourceTree = "<group>"; };
+		BBCB42B51FAD246A0050C4E1 /* Vector3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
+		BBCB42B61FAD246A0050C4E1 /* Vector3.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
+		BBCB42B81FAD47E10050C4E1 /* Color.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
+		BBCB42B91FAD47E10050C4E1 /* Color.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Color.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +121,11 @@
 				BBCB428F1FAD08120050C4E1 /* Application.cpp */,
 				BBCB42901FAD08120050C4E1 /* Application.hpp */,
 				BBCB42921FAD0BC50050C4E1 /* Size.hpp */,
+				BBCB42B51FAD246A0050C4E1 /* Vector3.cpp */,
+				BBCB42B61FAD246A0050C4E1 /* Vector3.hpp */,
 				BBCB429A1FAD108D0050C4E1 /* File.hpp */,
+				BBCB42B81FAD47E10050C4E1 /* Color.cpp */,
+				BBCB42B91FAD47E10050C4E1 /* Color.hpp */,
 				BBCB429F1FAD14F60050C4E1 /* Shader.cpp */,
 				BBCB42A01FAD14F60050C4E1 /* Shader.hpp */,
 				BBCB42A61FAD1B090050C4E1 /* FragmentShader.cpp */,
@@ -115,7 +134,13 @@
 				BBCB42AA1FAD1B110050C4E1 /* VertexShader.hpp */,
 				BBCB42A31FAD19E90050C4E1 /* Program.cpp */,
 				BBCB42A41FAD19E90050C4E1 /* Program.hpp */,
-				BBCB42A21FAD19C90050C4E1 /* Resources */,
+				BBCB42AC1FAD1F060050C4E1 /* Node.cpp */,
+				BBCB42AD1FAD1F060050C4E1 /* Node.hpp */,
+				BBCB42AF1FAD1F300050C4E1 /* Mesh.cpp */,
+				BBCB42B01FAD1F300050C4E1 /* Mesh.hpp */,
+				BBCB42B21FAD212C0050C4E1 /* MeshNode.cpp */,
+				BBCB42B31FAD212C0050C4E1 /* MeshNode.hpp */,
+				BBCB42A21FAD19C90050C4E1 /* Shaders */,
 			);
 			path = GraphicsEngine;
 			sourceTree = "<group>";
@@ -134,13 +159,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BBCB42A21FAD19C90050C4E1 /* Resources */ = {
+		BBCB42A21FAD19C90050C4E1 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				BBCB429B1FAD112B0050C4E1 /* Shader.vs */,
-				BBCB429C1FAD11370050C4E1 /* Shader.fs */,
+				BBCB429B1FAD112B0050C4E1 /* Simple.vs */,
+				BBCB429C1FAD11370050C4E1 /* Simple.fs */,
 			);
-			path = Resources;
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,11 +226,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBCB42A51FAD19E90050C4E1 /* Program.cpp in Sources */,
+				BBCB42AE1FAD1F060050C4E1 /* Node.cpp in Sources */,
 				BBCB42A81FAD1B090050C4E1 /* FragmentShader.cpp in Sources */,
 				BBCB42911FAD08120050C4E1 /* Application.cpp in Sources */,
 				BBCB42A11FAD14F60050C4E1 /* Shader.cpp in Sources */,
+				BBCB42BA1FAD47E10050C4E1 /* Color.cpp in Sources */,
 				BBCB42AB1FAD1B110050C4E1 /* VertexShader.cpp in Sources */,
+				BBCB42B71FAD246A0050C4E1 /* Vector3.cpp in Sources */,
+				BBCB42B11FAD1F300050C4E1 /* Mesh.cpp in Sources */,
 				BBCB42801FAD07570050C4E1 /* main.mm in Sources */,
+				BBCB42B41FAD212C0050C4E1 /* MeshNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
