@@ -31,6 +31,7 @@
 		BBCB42C41FAD5D780050C4E1 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42C21FAD5D780050C4E1 /* Cube.cpp */; };
 		BBCB42C71FAD5EBC0050C4E1 /* Cone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42C51FAD5EBC0050C4E1 /* Cone.cpp */; };
 		BBCB42CA1FAD5EF50050C4E1 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42C81FAD5EF50050C4E1 /* Primitive.cpp */; };
+		BBCB42CD1FAD65780050C4E1 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42CB1FAD65780050C4E1 /* Sphere.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,8 @@
 		BBCB42C61FAD5EBC0050C4E1 /* Cone.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cone.hpp; sourceTree = "<group>"; };
 		BBCB42C81FAD5EF50050C4E1 /* Primitive.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Primitive.cpp; sourceTree = "<group>"; };
 		BBCB42C91FAD5EF50050C4E1 /* Primitive.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Primitive.hpp; sourceTree = "<group>"; };
+		BBCB42CB1FAD65780050C4E1 /* Sphere.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
+		BBCB42CC1FAD65780050C4E1 /* Sphere.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sphere.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 				BBCB42C31FAD5D780050C4E1 /* Cube.hpp */,
 				BBCB42C51FAD5EBC0050C4E1 /* Cone.cpp */,
 				BBCB42C61FAD5EBC0050C4E1 /* Cone.hpp */,
+				BBCB42CB1FAD65780050C4E1 /* Sphere.cpp */,
+				BBCB42CC1FAD65780050C4E1 /* Sphere.hpp */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			files = (
 				BBCB42C71FAD5EBC0050C4E1 /* Cone.cpp in Sources */,
 				BBCB42C41FAD5D780050C4E1 /* Cube.cpp in Sources */,
+				BBCB42CD1FAD65780050C4E1 /* Sphere.cpp in Sources */,
 				BBCB42A51FAD19E90050C4E1 /* Program.cpp in Sources */,
 				BBCB42AE1FAD1F060050C4E1 /* Node.cpp in Sources */,
 				BBCB42CA1FAD5EF50050C4E1 /* Primitive.cpp in Sources */,
