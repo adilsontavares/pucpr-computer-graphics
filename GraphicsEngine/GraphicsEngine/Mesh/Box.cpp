@@ -8,7 +8,7 @@
 
 #include "Box.hpp"
 
-Box::Box(GLfloat width, GLfloat height, GLfloat depth)
+Box::Box(GLfloat width, GLfloat height, GLfloat depth) : Primitive()
 {
     this->width = width;
     this->height = height;

@@ -9,9 +9,9 @@
 #ifndef Box_hpp
 #define Box_hpp
 
-#include "Mesh.hpp"
+#include "Primitive.hpp"
 
-class Box : public Mesh
+class Box : public Primitive
 {
 public:
     
@@ -27,7 +27,7 @@ protected:
     GLfloat height;
     GLfloat depth;
     
-    void resetMesh();
+    virtual void resetMesh();
 };
 
 #endif /* Box_hpp */
