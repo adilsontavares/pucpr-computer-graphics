@@ -27,6 +27,7 @@
 		BBCB42B41FAD212C0050C4E1 /* MeshNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42B21FAD212C0050C4E1 /* MeshNode.cpp */; };
 		BBCB42B71FAD246A0050C4E1 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42B51FAD246A0050C4E1 /* Vector3.cpp */; };
 		BBCB42BA1FAD47E10050C4E1 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42B81FAD47E10050C4E1 /* Color.cpp */; };
+		BBCB42C01FAD551F0050C4E1 /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42BE1FAD551F0050C4E1 /* Box.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +78,8 @@
 		BBCB42B61FAD246A0050C4E1 /* Vector3.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
 		BBCB42B81FAD47E10050C4E1 /* Color.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
 		BBCB42B91FAD47E10050C4E1 /* Color.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Color.hpp; sourceTree = "<group>"; };
+		BBCB42BE1FAD551F0050C4E1 /* Box.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Box.cpp; sourceTree = "<group>"; };
+		BBCB42BF1FAD551F0050C4E1 /* Box.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Box.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				BBCB42B01FAD1F300050C4E1 /* Mesh.hpp */,
 				BBCB42B21FAD212C0050C4E1 /* MeshNode.cpp */,
 				BBCB42B31FAD212C0050C4E1 /* MeshNode.hpp */,
+				BBCB42BE1FAD551F0050C4E1 /* Box.cpp */,
+				BBCB42BF1FAD551F0050C4E1 /* Box.hpp */,
 				BBCB42A21FAD19C90050C4E1 /* Shaders */,
 			);
 			path = GraphicsEngine;
@@ -234,6 +239,7 @@
 				BBCB42AB1FAD1B110050C4E1 /* VertexShader.cpp in Sources */,
 				BBCB42B71FAD246A0050C4E1 /* Vector3.cpp in Sources */,
 				BBCB42B11FAD1F300050C4E1 /* Mesh.cpp in Sources */,
+				BBCB42C01FAD551F0050C4E1 /* Box.cpp in Sources */,
 				BBCB42801FAD07570050C4E1 /* main.mm in Sources */,
 				BBCB42B41FAD212C0050C4E1 /* MeshNode.cpp in Sources */,
 			);

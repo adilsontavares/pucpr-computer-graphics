@@ -17,6 +17,10 @@ void Node::draw()
 {
 }
 
+void Node::update(float delta)
+{
+}
+
 void Node::setPosition(Vector3 position)
 {
     this->position = position;

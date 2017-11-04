@@ -15,9 +15,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include <cstring>
+#include <vector>
 
 #include "Size.hpp"
+#include "Node.hpp"
 
 class Application
 {
@@ -28,7 +29,12 @@ public:
     Application(std::string title, int width, int height);
     ~Application();
     
+    void addChild(Node *node);
+    void removeChild(Node *node);
+    
 private:
+    
+    std::vector<Node*> nodes;
     
     Size windowSize;
     std::string windowTitle;
@@ -39,8 +45,12 @@ private:
     void createWindow();
     void setupGlew();
     void setupGL();
+    void setupNodes();
     
     void mainLoop();
+    
+    void update();
+    void render();
 };
 
 #endif /* Application_hpp */

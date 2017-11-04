@@ -10,7 +10,7 @@
 #include "Mesh.hpp"
 #include <cassert>
 
-MeshNode::MeshNode()
+MeshNode::MeshNode() : Node()
 {
     this->mesh = 0;
     this->program = Program::simple();
@@ -20,9 +20,8 @@ MeshNode::MeshNode()
     this->scale = Vector3(1);
 }
 
-MeshNode::MeshNode(Mesh *mesh)
+MeshNode::MeshNode(Mesh *mesh) : MeshNode()
 {
-    MeshNode();
     setMesh(mesh);
 }
 

@@ -19,8 +19,11 @@ class Node
 public:
     
     Node();
+    
+    void update(float delta);
     virtual void draw();
- 
+    
+    
     void setPosition(Vector3 position);
     void setRotation(Vector3 rotation);
     void setScale(Vector3 scale);

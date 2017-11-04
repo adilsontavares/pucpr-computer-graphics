@@ -10,7 +10,7 @@
 #include "VertexShader.hpp"
 #include "FragmentShader.hpp"
 
-Program::Program(Shader *vertex, Shader *fragment)
+Program::Program(VertexShader *vertex, FragmentShader *fragment)
 {
     this->vertex = vertex;
     this->fragment = fragment;
@@ -19,6 +19,8 @@ Program::Program(Shader *vertex, Shader *fragment)
     glAttachShader(id, vertex->getId());
     glAttachShader(id, fragment->getId());
     glLinkProgram(id);
+    
+    printf("PROGRAM: %d\n", id);
 }
 
 void Program::use()
@@ -38,4 +40,14 @@ Program *Program::simple()
 GLuint Program::getId()
 {
     return id;
+}
+
+VertexShader *Program::getVertex()
+{
+    return vertex;
+}
+
+FragmentShader *Program::getFragment()
+{
+    return fragment;
 }

@@ -10,13 +10,14 @@
 #define Program_hpp
 
 #include <stdio.h>
-#include "Shader.hpp"
+#include "VertexShader.hpp"
+#include "FragmentShader.hpp"
 
 class Program
 {
 public:
     
-    Program(Shader *vertex, Shader *fragment);
+    Program(VertexShader *vertex, FragmentShader *fragment);
     
     void use();
     
@@ -24,12 +25,15 @@ public:
     
     GLuint getId();
     
+    VertexShader *getVertex();
+    FragmentShader *getFragment();
+    
 private:
     
     GLuint id;
     
-    Shader *vertex;
-    Shader *fragment;
+    VertexShader *vertex;
+    FragmentShader *fragment;
 };
 
 #endif /* Program_hpp */

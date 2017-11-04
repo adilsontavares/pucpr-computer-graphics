@@ -11,9 +11,7 @@
 #include "File.hpp"
 #include "MeshNode.hpp"
 #include "Color.hpp"
-
-#include "VertexShader.hpp"
-#include "FragmentShader.hpp"
+#include "Box.hpp"
 
 using namespace std;
 
@@ -40,35 +38,53 @@ void Application::run()
     createWindow();
     setupGlew();
     setupGL();
+    setupNodes();
     
     mainLoop();
 }
 
+void Application::setupNodes()
+{
+    auto box = new Box(1, 1, 1);
+    auto node = new MeshNode(box);
+    node->setScale(Vector3(0.7));
+    
+    addChild(node);
+}
+
+void Application::update()
+{
+    static float rot = 0;
+    rot += 0.01;
+    
+    for (auto node : nodes)
+    {
+        node->setPosition(Vector3(0, 0, 0.5));
+        node->setRotation(Vector3(-45, rot, 0));
+        node->update(0);
+    }
+}
+
+void Application::render()
+{
+    for (auto node : nodes)
+        node->draw();
+}
+
 void Application::mainLoop()
 {
-    Mesh *mesh = new Mesh();
-    mesh->setVertices((Vector3[]){
-        Vector3(0, 0, 0),
-        Vector3(1, 1, 0),
-        Vector3(1, 0, 0),
-        Vector3(1, -1, 0)
-    }, 4);
-    
-    mesh->setFaces((GLuint[]) { 0, 1, 2, 2, 3, 0 }, 6);
-    mesh->setColors((Color[]) {
-        Color::red(),
-        Color::green(),
-        Color::blue()
-    }, 3);
-    
-    auto node = new MeshNode();
-    node->setMesh(mesh);
-    
     while (!glfwWindowShouldClose(window))
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
         
-        node->draw();
+        glPushMatrix();
+        
+        update();
+        render();
+        
+        glPopMatrix();
         
         glfwPollEvents();
         glfwSwapBuffers(window);
@@ -90,10 +106,21 @@ void Application::setupGlew()
 
 void Application::setupGL()
 {
-    glClearColor(1, 0, 0, 1.0);
+    glClearColor(0.15, 0.15, 0.15, 1.0);
     
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
+    glEnable(GL_DEPTH_TEST);
+}
+
+void Application::addChild(Node *node)
+{
+    nodes.push_back(node);
+}
+
+void Application::removeChild(Node *node)
+{
 }
 
 Application::~Application()
