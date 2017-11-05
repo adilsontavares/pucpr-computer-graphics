@@ -11,7 +11,8 @@
 #include "File.hpp"
 #include "MeshNode.hpp"
 #include "Color.hpp"
-#include "Cylinder.hpp"
+#include "PointNode.hpp"
+#include "Cube.hpp"
 
 using namespace std;
 
@@ -45,23 +46,19 @@ void Application::run()
 
 void Application::setupNodes()
 {
-    auto mesh = new Cylinder(0.2, 0.8, 15);
-    auto node = new MeshNode(mesh);
-    
+    auto node = new PointNode();
+    node->setColor(Color::green());
     addChild(node);
+    
+//    auto cube = new Cube(1);
+//    auto cubeNode = new MeshNode(cube);
+//    addChild(cubeNode);
 }
 
 void Application::update()
 {
-    static float rot = 0;
-    rot += 0.01;
-    
     for (auto node : nodes)
-    {
-        node->setPosition(Vector3(0, 0, 0.5));
-        node->setRotation(Vector3(45, rot, 0));
         node->update(0);
-    }
 }
 
 void Application::render()

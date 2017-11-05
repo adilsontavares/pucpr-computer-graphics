@@ -8,6 +8,11 @@
 
 #include "Color.hpp"
 
+Color::Color()
+{
+    r = g = b = a = 1;
+}
+
 Color::Color(GLfloat r, GLfloat g, GLfloat b)
 {
     this->r = r;
@@ -57,4 +62,9 @@ Color Color::gray()
 Color Color::withAlpha(GLfloat a)
 {
     return Color(r, g, b, a);
+}
+
+GLuint Color::bytes()
+{
+    return sizeof(r) * 4;
 }

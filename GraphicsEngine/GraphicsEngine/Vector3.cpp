@@ -29,3 +29,8 @@ GLfloat Vector3::magnitude()
 {
     return x * x + y * y + z * z;
 }
+
+GLuint Vector3::bytes()
+{
+    return sizeof(x) * 3;
+}

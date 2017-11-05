@@ -29,6 +29,7 @@ public:
     friend Vector3 operator * (const Vector3& a, GLfloat m) { return Vector3(a.x * m, a.y * m, a.z * m); }
     
     GLfloat magnitude();
+    GLuint bytes();
 };
 
 #endif /* Vector3_hpp */

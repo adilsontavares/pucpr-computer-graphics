@@ -20,6 +20,7 @@ public:
     GLfloat b;
     GLfloat a;
     
+    Color();
     Color(GLfloat r, GLfloat g, GLfloat b);
     Color(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
     
@@ -29,6 +30,8 @@ public:
     static Color black();
     static Color gray();
     static Color white();
+    
+    GLuint bytes();
     
     Color withAlpha(GLfloat a);
 };

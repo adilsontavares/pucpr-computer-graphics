@@ -9,18 +9,16 @@
 #ifndef MeshNode_hpp
 #define MeshNode_hpp
 
-#include "Node.hpp"
+#include "RenderNode.hpp"
 #include "Mesh.hpp"
 #include "Program.hpp"
 
-class MeshNode : public Node
+class MeshNode : public RenderNode
 {
 public:
     
     MeshNode();
     MeshNode(Mesh *mesh);
-    
-    void setProgram(Program *program);
     
     void setMesh(Mesh *mesh);
     Mesh *getMesh();
@@ -36,8 +34,6 @@ private:
     GLuint arrayId;
     
     Mesh *mesh;
-    
-    Program *program;
 };
 
 #endif /* MeshNode_hpp */

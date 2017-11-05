@@ -10,14 +10,9 @@
 #include "Mesh.hpp"
 #include <cassert>
 
-MeshNode::MeshNode() : Node()
+MeshNode::MeshNode() : RenderNode()
 {
     this->mesh = 0;
-    this->program = Program::simple();
-    
-    this->position = Vector3();
-    this->rotation = Vector3();
-    this->scale = Vector3(1);
 }
 
 MeshNode::MeshNode(Mesh *mesh) : MeshNode()
@@ -47,11 +42,6 @@ void MeshNode::setMesh(Mesh *mesh)
     
     glGenVertexArrays(1, &arrayId);
     glBindVertexArray(arrayId);
-}
-
-void MeshNode::setProgram(Program *program)
-{
-    this->program = program;
 }
 
 Mesh *MeshNode::getMesh()

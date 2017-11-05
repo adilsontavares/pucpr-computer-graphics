@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BB7131A91FAE558400481B94 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7131A71FAE558400481B94 /* Cylinder.cpp */; };
+		BB7131AC1FAE67BE00481B94 /* PointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7131AA1FAE67BD00481B94 /* PointNode.cpp */; };
+		BB7131AF1FAE682200481B94 /* RenderNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7131AD1FAE682200481B94 /* RenderNode.cpp */; };
 		BBCB42801FAD07570050C4E1 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = BBCB427F1FAD07570050C4E1 /* main.mm */; };
 		BBCB42891FAD07700050C4E1 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB42881FAD07700050C4E1 /* libGLEW.a */; };
 		BBCB428B1FAD077B0050C4E1 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB428A1FAD077B0050C4E1 /* libglfw3.a */; };
@@ -52,6 +54,10 @@
 /* Begin PBXFileReference section */
 		BB7131A71FAE558400481B94 /* Cylinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cylinder.cpp; sourceTree = "<group>"; };
 		BB7131A81FAE558400481B94 /* Cylinder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cylinder.hpp; sourceTree = "<group>"; };
+		BB7131AA1FAE67BD00481B94 /* PointNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PointNode.cpp; sourceTree = "<group>"; };
+		BB7131AB1FAE67BE00481B94 /* PointNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PointNode.hpp; sourceTree = "<group>"; };
+		BB7131AD1FAE682200481B94 /* RenderNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderNode.cpp; sourceTree = "<group>"; };
+		BB7131AE1FAE682200481B94 /* RenderNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RenderNode.hpp; sourceTree = "<group>"; };
 		BBCB427C1FAD07570050C4E1 /* GraphicsEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GraphicsEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBCB427F1FAD07570050C4E1 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		BBCB42871FAD07610050C4E1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -154,8 +160,12 @@
 				BBCB42A41FAD19E90050C4E1 /* Program.hpp */,
 				BBCB42AC1FAD1F060050C4E1 /* Node.cpp */,
 				BBCB42AD1FAD1F060050C4E1 /* Node.hpp */,
+				BB7131AD1FAE682200481B94 /* RenderNode.cpp */,
+				BB7131AE1FAE682200481B94 /* RenderNode.hpp */,
 				BBCB42B21FAD212C0050C4E1 /* MeshNode.cpp */,
 				BBCB42B31FAD212C0050C4E1 /* MeshNode.hpp */,
+				BB7131AA1FAE67BD00481B94 /* PointNode.cpp */,
+				BB7131AB1FAE67BE00481B94 /* PointNode.hpp */,
 				BBCB42C11FAD5D6A0050C4E1 /* Mesh */,
 				BBCB42A21FAD19C90050C4E1 /* Shaders */,
 			);
@@ -265,6 +275,7 @@
 			files = (
 				BBCB42C71FAD5EBC0050C4E1 /* Cone.cpp in Sources */,
 				BBCB42C41FAD5D780050C4E1 /* Cube.cpp in Sources */,
+				BB7131AC1FAE67BE00481B94 /* PointNode.cpp in Sources */,
 				BBCB42CD1FAD65780050C4E1 /* Sphere.cpp in Sources */,
 				BBCB42A51FAD19E90050C4E1 /* Program.cpp in Sources */,
 				BBCB42AE1FAD1F060050C4E1 /* Node.cpp in Sources */,
@@ -272,6 +283,7 @@
 				BBCB42A81FAD1B090050C4E1 /* FragmentShader.cpp in Sources */,
 				BBCB42911FAD08120050C4E1 /* Application.cpp in Sources */,
 				BBCB42A11FAD14F60050C4E1 /* Shader.cpp in Sources */,
+				BB7131AF1FAE682200481B94 /* RenderNode.cpp in Sources */,
 				BBCB42BA1FAD47E10050C4E1 /* Color.cpp in Sources */,
 				BBCB42AB1FAD1B110050C4E1 /* VertexShader.cpp in Sources */,
 				BBCB42B71FAD246A0050C4E1 /* Vector3.cpp in Sources */,

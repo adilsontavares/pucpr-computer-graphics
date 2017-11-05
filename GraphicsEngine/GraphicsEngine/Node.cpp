@@ -11,13 +11,16 @@
 
 Node::Node()
 {
-}
-
-void Node::draw()
-{
+    position = Vector3();
+    rotation = Vector3();
+    scale = Vector3(1);
 }
 
 void Node::update(float delta)
+{
+}
+
+void Node::draw()
 {
 }
 

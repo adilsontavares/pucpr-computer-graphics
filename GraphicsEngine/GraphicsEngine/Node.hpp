@@ -20,19 +20,19 @@ public:
     
     Node();
     
-    void update(float delta);
-    virtual void draw();
+    void update(float delta);    
     
-    
-    void setPosition(Vector3 position);
-    void setRotation(Vector3 rotation);
-    void setScale(Vector3 scale);
+    virtual void setPosition(Vector3 position);
+    virtual void setRotation(Vector3 rotation);
+    virtual void setScale(Vector3 scale);
     
     Vector3 getPosition();
     Vector3 getRotation();
     Vector3 getScale();
     
     glm::mat4 getMatrix();
+    
+    virtual void draw();
     
 protected:
     
