@@ -13,6 +13,8 @@
 #include "Color.hpp"
 #include "PointNode.hpp"
 #include "Cube.hpp"
+#include "Square.hpp"
+#include "Circle.hpp"
 
 using namespace std;
 
@@ -46,8 +48,10 @@ void Application::run()
 
 void Application::setupNodes()
 {
-    auto node = new PointNode();
-    node->setColor(Color::green());
+    auto mesh = new Circle(0.3, 30);
+    auto node = new MeshNode(mesh);
+    
+//    node->setColor(Color::green());
     addChild(node);
     
 //    auto cube = new Cube(1);

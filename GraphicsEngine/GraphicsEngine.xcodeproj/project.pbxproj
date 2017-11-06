@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB63E3881FB100FB0022E530 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB63E3861FB100FB0022E530 /* Rectangle.cpp */; };
+		BB63E38B1FB102540022E530 /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB63E3891FB102540022E530 /* Square.cpp */; };
+		BB63E38E1FB1037A0022E530 /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB63E38C1FB1037A0022E530 /* Circle.cpp */; };
 		BB7131A91FAE558400481B94 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7131A71FAE558400481B94 /* Cylinder.cpp */; };
 		BB7131AC1FAE67BE00481B94 /* PointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7131AA1FAE67BD00481B94 /* PointNode.cpp */; };
 		BB7131AF1FAE682200481B94 /* RenderNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7131AD1FAE682200481B94 /* RenderNode.cpp */; };
@@ -52,6 +55,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BB63E3861FB100FB0022E530 /* Rectangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
+		BB63E3871FB100FB0022E530 /* Rectangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Rectangle.hpp; sourceTree = "<group>"; };
+		BB63E3891FB102540022E530 /* Square.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Square.cpp; sourceTree = "<group>"; };
+		BB63E38A1FB102540022E530 /* Square.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Square.hpp; sourceTree = "<group>"; };
+		BB63E38C1FB1037A0022E530 /* Circle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Circle.cpp; sourceTree = "<group>"; };
+		BB63E38D1FB1037A0022E530 /* Circle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Circle.hpp; sourceTree = "<group>"; };
 		BB7131A71FAE558400481B94 /* Cylinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cylinder.cpp; sourceTree = "<group>"; };
 		BB7131A81FAE558400481B94 /* Cylinder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cylinder.hpp; sourceTree = "<group>"; };
 		BB7131AA1FAE67BD00481B94 /* PointNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PointNode.cpp; sourceTree = "<group>"; };
@@ -121,6 +130,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB63E3841FB100CC0022E530 /* 3D */ = {
+			isa = PBXGroup;
+			children = (
+				BBCB42BE1FAD551F0050C4E1 /* Box.cpp */,
+				BBCB42BF1FAD551F0050C4E1 /* Box.hpp */,
+				BBCB42C21FAD5D780050C4E1 /* Cube.cpp */,
+				BBCB42C31FAD5D780050C4E1 /* Cube.hpp */,
+				BBCB42C51FAD5EBC0050C4E1 /* Cone.cpp */,
+				BBCB42C61FAD5EBC0050C4E1 /* Cone.hpp */,
+				BBCB42CB1FAD65780050C4E1 /* Sphere.cpp */,
+				BBCB42CC1FAD65780050C4E1 /* Sphere.hpp */,
+				BB7131A71FAE558400481B94 /* Cylinder.cpp */,
+				BB7131A81FAE558400481B94 /* Cylinder.hpp */,
+			);
+			path = 3D;
+			sourceTree = "<group>";
+		};
+		BB63E3851FB100DD0022E530 /* 2D */ = {
+			isa = PBXGroup;
+			children = (
+				BB63E3861FB100FB0022E530 /* Rectangle.cpp */,
+				BB63E3871FB100FB0022E530 /* Rectangle.hpp */,
+				BB63E3891FB102540022E530 /* Square.cpp */,
+				BB63E38A1FB102540022E530 /* Square.hpp */,
+				BB63E38C1FB1037A0022E530 /* Circle.cpp */,
+				BB63E38D1FB1037A0022E530 /* Circle.hpp */,
+			);
+			path = 2D;
+			sourceTree = "<group>";
+		};
 		BBCB42731FAD07570050C4E1 = {
 			isa = PBXGroup;
 			children = (
@@ -202,16 +241,8 @@
 				BBCB42B01FAD1F300050C4E1 /* Mesh.hpp */,
 				BBCB42C81FAD5EF50050C4E1 /* Primitive.cpp */,
 				BBCB42C91FAD5EF50050C4E1 /* Primitive.hpp */,
-				BBCB42BE1FAD551F0050C4E1 /* Box.cpp */,
-				BBCB42BF1FAD551F0050C4E1 /* Box.hpp */,
-				BBCB42C21FAD5D780050C4E1 /* Cube.cpp */,
-				BBCB42C31FAD5D780050C4E1 /* Cube.hpp */,
-				BBCB42C51FAD5EBC0050C4E1 /* Cone.cpp */,
-				BBCB42C61FAD5EBC0050C4E1 /* Cone.hpp */,
-				BBCB42CB1FAD65780050C4E1 /* Sphere.cpp */,
-				BBCB42CC1FAD65780050C4E1 /* Sphere.hpp */,
-				BB7131A71FAE558400481B94 /* Cylinder.cpp */,
-				BB7131A81FAE558400481B94 /* Cylinder.hpp */,
+				BB63E3851FB100DD0022E530 /* 2D */,
+				BB63E3841FB100CC0022E530 /* 3D */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -276,6 +307,8 @@
 				BBCB42C71FAD5EBC0050C4E1 /* Cone.cpp in Sources */,
 				BBCB42C41FAD5D780050C4E1 /* Cube.cpp in Sources */,
 				BB7131AC1FAE67BE00481B94 /* PointNode.cpp in Sources */,
+				BB63E3881FB100FB0022E530 /* Rectangle.cpp in Sources */,
+				BB63E38B1FB102540022E530 /* Square.cpp in Sources */,
 				BBCB42CD1FAD65780050C4E1 /* Sphere.cpp in Sources */,
 				BBCB42A51FAD19E90050C4E1 /* Program.cpp in Sources */,
 				BBCB42AE1FAD1F060050C4E1 /* Node.cpp in Sources */,
@@ -284,6 +317,7 @@
 				BBCB42911FAD08120050C4E1 /* Application.cpp in Sources */,
 				BBCB42A11FAD14F60050C4E1 /* Shader.cpp in Sources */,
 				BB7131AF1FAE682200481B94 /* RenderNode.cpp in Sources */,
+				BB63E38E1FB1037A0022E530 /* Circle.cpp in Sources */,
 				BBCB42BA1FAD47E10050C4E1 /* Color.cpp in Sources */,
 				BBCB42AB1FAD1B110050C4E1 /* VertexShader.cpp in Sources */,
 				BBCB42B71FAD246A0050C4E1 /* Vector3.cpp in Sources */,
