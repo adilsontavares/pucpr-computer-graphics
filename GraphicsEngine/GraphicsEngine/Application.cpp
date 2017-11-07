@@ -16,6 +16,7 @@
 #include "Square.hpp"
 #include "Cylinder.hpp"
 #include "Triangle.hpp"
+#include "LineNode.hpp"
 
 using namespace std;
 
@@ -49,8 +50,11 @@ void Application::run()
 
 void Application::setupNodes()
 {
-    auto mesh = new Triangle(0.5);
-    auto node = new MeshNode(mesh);
+//    auto mesh = new Triangle(0.5);
+//    auto node = new MeshNode(mesh);
+    auto node = new LineNode(Vector3(0, 0, 0), Vector3(0.5, 0.5, 0));
+    node->setOriginColor(Color::red());
+    node->setDestinationColor(Color::green());
     
 //    node->setColor(Color::green());
     addChild(node);
@@ -64,7 +68,7 @@ void Application::update()
 {
     for (auto node : nodes)
     {
-//        node->setRotation(Vector3(-45, node->getRotation().y + 0.01, 0));
+        node->setRotation(Vector3(-45, node->getRotation().y + 0.01, 0));
         node->update(0);
     }
 }
