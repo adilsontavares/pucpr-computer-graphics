@@ -14,19 +14,19 @@ Circle::Circle(GLfloat radius, GLuint divisions)
     this->radius = radius;
     this->divisions = divisions;
     
-    resetMesh();
+    reset();
 }
 
 void Circle::setRadius(GLfloat radius)
 {
     this->radius = radius;
-    resetMesh();
+    reset();
 }
 
 void Circle::setDivisions(GLuint divisions)
 {
     this->divisions = divisions;
-    resetMesh();
+    reset();
 }
 
 GLfloat Circle::getRadius()
@@ -39,7 +39,7 @@ GLuint Circle::getDivisions()
     return divisions;
 }
 
-void Circle::resetMesh()
+void Circle::generate()
 {
     vertices.push_back(Vector3(0, 0, 0));
     colors.push_back(Color::red());

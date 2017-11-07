@@ -33,6 +33,13 @@ void Mesh::setColors(Color *colors, GLuint count)
         this->colors.push_back(colors[i]);
 }
 
+void Mesh::clear()
+{
+    vertices.clear();
+    faces.clear();
+    colors.clear();
+}
+
 void Mesh::assertConsistency()
 {
     if (faces.size() % 3 != 0)

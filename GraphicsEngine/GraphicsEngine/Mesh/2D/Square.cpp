@@ -17,7 +17,7 @@ void Square::setSize(GLfloat size)
 {
     this->width = size;
     this->height = size;
-    resetMesh();
+    reset();
 }
 
 GLfloat Square::getSize()

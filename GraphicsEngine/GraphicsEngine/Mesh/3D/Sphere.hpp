@@ -28,7 +28,7 @@ protected:
     GLfloat radius;
     GLuint divisions;
     
-    virtual void resetMesh();
+    virtual void generate();
 };
 
 #endif /* Sphere_hpp */

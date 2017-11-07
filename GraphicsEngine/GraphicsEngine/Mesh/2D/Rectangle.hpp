@@ -28,7 +28,7 @@ protected:
     GLfloat width;
     GLfloat height;
     
-    virtual void resetMesh();
+    virtual void generate();
 };
 
 #endif /* Rectangle_hpp */

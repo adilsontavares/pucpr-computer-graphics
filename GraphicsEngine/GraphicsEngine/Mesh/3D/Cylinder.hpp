@@ -31,7 +31,7 @@ protected:
     GLfloat height;
     GLuint divisions;
     
-    virtual void resetMesh();
+    virtual void generate();
 };
 
 #endif /* Cylinder_hpp */

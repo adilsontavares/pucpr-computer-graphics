@@ -27,7 +27,7 @@ protected:
     GLfloat height;
     GLfloat depth;
     
-    virtual void resetMesh();
+    virtual void generate();
 };
 
 #endif /* Box_hpp */

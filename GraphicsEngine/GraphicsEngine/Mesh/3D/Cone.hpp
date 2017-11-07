@@ -31,7 +31,7 @@ protected:
     GLfloat radius;
     GLfloat height;
     
-    virtual void resetMesh();
+    virtual void generate();
 };
 
 #endif /* Cone_hpp */

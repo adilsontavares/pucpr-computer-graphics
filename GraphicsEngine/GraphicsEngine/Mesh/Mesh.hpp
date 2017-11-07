@@ -28,6 +28,7 @@ public:
     void setColors(Color *colors, GLuint count);
     
     void assertConsistency();
+    void clear();
     
 protected:
     

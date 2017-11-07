@@ -12,3 +12,8 @@ Primitive::Primitive()
 {
 }
 
+void Primitive::reset()
+{
+    clear();
+    generate();
+}

@@ -18,15 +18,11 @@ Cylinder::Cylinder(GLfloat radius, GLfloat height, GLuint divisions) : Primitive
     this->divisions = divisions;
     assert(divisions >= 3);
     
-    resetMesh();
+    reset();
 }
 
-void Cylinder::resetMesh()
-{
-    vertices.clear();
-    colors.clear();
-    faces.clear();
-    
+void Cylinder::generate()
+{    
     const auto h2 = height * 0.5;
     
     vertices.push_back(Vector3(0, h2, 0));
@@ -89,13 +85,13 @@ void Cylinder::resetMesh()
 void Cylinder::setRadius(GLfloat radius)
 {
     this->radius = radius;
-    resetMesh();
+    reset();
 }
 
 void Cylinder::setHeight(GLfloat height)
 {
     this->height = height;
-    resetMesh();
+    reset();
 }
 
 void Cylinder::setDivisions(GLuint divisions)
@@ -103,7 +99,7 @@ void Cylinder::setDivisions(GLuint divisions)
     this->divisions = divisions;
     assert(divisions >= 3);
     
-    resetMesh();
+    reset();
 }
 
 GLfloat Cylinder::getRadius()

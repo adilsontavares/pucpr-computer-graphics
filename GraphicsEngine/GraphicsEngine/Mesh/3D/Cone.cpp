@@ -17,19 +17,17 @@ Cone::Cone(GLfloat radius, GLfloat height, GLuint divisions) : Primitive()
     this->divisions = divisions;
     assert(divisions >= 3);
     
-    resetMesh();
+    reset();
 }
 
-void Cone::resetMesh()
+void Cone::generate()
 {
     auto top = Vector3(0, height * 0.5, 0);
     auto base = Vector3(0, -height * 0.5, 0);
     
-    vertices.clear();
     vertices.push_back(top);
     vertices.push_back(base);
     
-    colors.clear();
     colors.push_back(Color::green());
     colors.push_back(Color::blue());
     
@@ -45,7 +43,6 @@ void Cone::resetMesh()
         colors.push_back(Color(sine * 0.5 + 0.5, 0, 0));
     }
     
-    faces.clear();
     for (GLuint i = 1; i < divisions; ++i)
     {
         faces.push_back(0);
@@ -71,19 +68,19 @@ void Cone::setDivisions(GLuint divisions)
     this->divisions = divisions;
     assert(divisions >= 3);
     
-    resetMesh();
+    reset();
 }
 
 void Cone::setRadius(GLfloat radius)
 {
     this->radius = radius;
-    resetMesh();
+    reset();
 }
 
 void Cone::setHeight(GLfloat height)
 {
     this->height = height;
-    resetMesh();
+    reset();
 }
 
 GLuint Cone::getDivisions()

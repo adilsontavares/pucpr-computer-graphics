@@ -14,10 +14,10 @@ Box::Box(GLfloat width, GLfloat height, GLfloat depth) : Primitive()
     this->height = height;
     this->depth = depth;
     
-    resetMesh();
+    reset();
 }
 
-void Box::resetMesh()
+void Box::generate()
 {
     auto w2 = width * 0.5;
     auto h2 = height * 0.5;
@@ -86,17 +86,17 @@ void Box::resetMesh()
 void Box::setWidth(GLfloat width)
 {
     this->width = width;
-    resetMesh();
+    reset();
 }
 
 void Box::setHeight(GLfloat height)
 {
     this->height = height;
-    resetMesh();
+    reset();
 }
 
 void Box::setDepth(GLfloat depth)
 {
     this->depth = depth;
-    resetMesh();
+    reset();
 }

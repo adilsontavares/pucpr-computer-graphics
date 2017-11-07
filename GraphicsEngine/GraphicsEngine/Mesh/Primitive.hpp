@@ -19,7 +19,8 @@ public:
     
 protected:
     
-    virtual void resetMesh() = 0;
+    void reset();
+    virtual void generate() = 0;
 };
 
 #endif /* Primitive_hpp */

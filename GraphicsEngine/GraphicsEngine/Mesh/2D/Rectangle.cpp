@@ -13,15 +13,11 @@ Rectangle::Rectangle(GLfloat width, GLfloat height)
     this->width = width;
     this->height = height;
     
-    resetMesh();
+    reset();
 }
 
-void Rectangle::resetMesh()
+void Rectangle::generate()
 {
-    vertices.clear();
-    faces.clear();
-    colors.clear();
-    
     const auto w2 = width * 0.5;
     const auto h2 = height * 0.5;
     
@@ -41,13 +37,13 @@ void Rectangle::resetMesh()
 void Rectangle::setWidth(GLfloat width)
 {
     this->width = width;
-    resetMesh();
+    reset();
 }
 
 void Rectangle::setHeight(GLfloat height)
 {
     this->height = height;
-    resetMesh();
+    reset();
 }
 
 GLfloat Rectangle::getWidth()

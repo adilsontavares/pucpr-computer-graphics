@@ -20,7 +20,7 @@ void Cube::setSize(GLfloat size)
     height = size;
     depth = size;
     
-    resetMesh();
+    reset();
 }
 
 GLfloat Cube::getSize()

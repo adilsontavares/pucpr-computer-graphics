@@ -14,7 +14,8 @@
 #include "PointNode.hpp"
 #include "Cube.hpp"
 #include "Square.hpp"
-#include "Circle.hpp"
+#include "Cylinder.hpp"
+#include "Triangle.hpp"
 
 using namespace std;
 
@@ -48,7 +49,7 @@ void Application::run()
 
 void Application::setupNodes()
 {
-    auto mesh = new Circle(0.3, 30);
+    auto mesh = new Triangle(0.5);
     auto node = new MeshNode(mesh);
     
 //    node->setColor(Color::green());
@@ -62,7 +63,10 @@ void Application::setupNodes()
 void Application::update()
 {
     for (auto node : nodes)
+    {
+//        node->setRotation(Vector3(-45, node->getRotation().y + 0.01, 0));
         node->update(0);
+    }
 }
 
 void Application::render()

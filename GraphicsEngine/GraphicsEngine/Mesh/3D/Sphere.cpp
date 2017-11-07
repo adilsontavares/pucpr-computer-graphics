@@ -16,15 +16,11 @@ Sphere::Sphere(GLfloat radius, GLuint divisions) : Primitive()
     this->divisions = divisions;
     assert(divisions >= 3);
     
-    resetMesh();
+    reset();
 }
 
-void Sphere::resetMesh()
+void Sphere::generate()
 {
-    vertices.clear();
-    colors.clear();
-    faces.clear();
-    
     // CREATE SPHERE HERE!
 }
 
@@ -33,13 +29,13 @@ void Sphere::setDivisions(GLuint divisions)
     this->divisions = divisions;
     assert(divisions >= 3);
     
-    resetMesh();
+    reset();
 }
 
 void Sphere::setRadius(GLfloat radius)
 {
     this->radius = radius;
-    resetMesh();
+    reset();
 }
 
 GLuint Sphere::getDivisions()
