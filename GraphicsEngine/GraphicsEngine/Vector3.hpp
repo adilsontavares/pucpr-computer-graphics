@@ -28,8 +28,15 @@ public:
     friend Vector3 operator - (const Vector3& a, const Vector3& b) { return Vector3(a.x - b.x, a.y - b.y, a.z - b.z); }
     friend Vector3 operator * (const Vector3& a, GLfloat m) { return Vector3(a.x * m, a.y * m, a.z * m); }
     
+    Vector3 deg2rad();
+    Vector3 rad2deg();
+    
     GLfloat magnitude();
     GLuint bytes();
+    
+    static Vector3 up();
+    static Vector3 right();
+    static Vector3 forward();
 };
 
 #endif /* Vector3_hpp */

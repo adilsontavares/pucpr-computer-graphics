@@ -11,7 +11,7 @@
 
 #include "RenderNode.hpp"
 #include "Mesh.hpp"
-#include "Program.hpp"
+#include "ShaderProgram.hpp"
 
 class MeshNode : public RenderNode
 {
@@ -23,7 +23,8 @@ public:
     void setMesh(Mesh *mesh);
     Mesh *getMesh();
   
-    virtual void draw();
+    virtual void update(GLfloat delta);
+    virtual void draw(glm::mat4 base);
     
 private:
     
@@ -31,9 +32,11 @@ private:
     GLuint elementBuffer;
     GLuint colorBuffer;
     
+    glm::mat4 *matrix;
     GLuint arrayId;
-    
     Mesh *mesh;
+    
+    void updateBuffers();
 };
 
 #endif /* MeshNode_hpp */

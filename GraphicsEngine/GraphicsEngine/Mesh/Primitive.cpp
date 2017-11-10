@@ -16,4 +16,5 @@ void Primitive::reset()
 {
     clear();
     generate();
+    assertConsistency();
 }

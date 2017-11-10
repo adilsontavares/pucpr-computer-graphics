@@ -15,6 +15,7 @@
 		BB7131AF1FAE682200481B94 /* RenderNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7131AD1FAE682200481B94 /* RenderNode.cpp */; };
 		BBA8961D1FB251B200A8716F /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBA8961B1FB251B200A8716F /* Triangle.cpp */; };
 		BBA896231FB2548A00A8716F /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBA896211FB2548A00A8716F /* LineNode.cpp */; };
+		BBA896261FB2589400A8716F /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBA896241FB2589400A8716F /* Camera.cpp */; };
 		BBCB42801FAD07570050C4E1 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = BBCB427F1FAD07570050C4E1 /* main.mm */; };
 		BBCB42891FAD07700050C4E1 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB42881FAD07700050C4E1 /* libGLEW.a */; };
 		BBCB428B1FAD077B0050C4E1 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB428A1FAD077B0050C4E1 /* libglfw3.a */; };
@@ -27,7 +28,7 @@
 		BBCB429D1FAD13910050C4E1 /* Simple.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBCB429B1FAD112B0050C4E1 /* Simple.vs */; };
 		BBCB429E1FAD13930050C4E1 /* Simple.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBCB429C1FAD11370050C4E1 /* Simple.fs */; };
 		BBCB42A11FAD14F60050C4E1 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB429F1FAD14F60050C4E1 /* Shader.cpp */; };
-		BBCB42A51FAD19E90050C4E1 /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42A31FAD19E90050C4E1 /* Program.cpp */; };
+		BBCB42A51FAD19E90050C4E1 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42A31FAD19E90050C4E1 /* ShaderProgram.cpp */; };
 		BBCB42A81FAD1B090050C4E1 /* FragmentShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42A61FAD1B090050C4E1 /* FragmentShader.cpp */; };
 		BBCB42AB1FAD1B110050C4E1 /* VertexShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42A91FAD1B110050C4E1 /* VertexShader.cpp */; };
 		BBCB42AE1FAD1F060050C4E1 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42AC1FAD1F060050C4E1 /* Node.cpp */; };
@@ -40,6 +41,8 @@
 		BBCB42C71FAD5EBC0050C4E1 /* Cone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42C51FAD5EBC0050C4E1 /* Cone.cpp */; };
 		BBCB42CA1FAD5EF50050C4E1 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42C81FAD5EF50050C4E1 /* Primitive.cpp */; };
 		BBCB42CD1FAD65780050C4E1 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB42CB1FAD65780050C4E1 /* Sphere.cpp */; };
+		BBD184941FB50989009F2FA4 /* DisplayFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBD184921FB50989009F2FA4 /* DisplayFile.cpp */; };
+		BBD184971FB53B09009F2FA4 /* ShaderArgument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBD184951FB53B09009F2FA4 /* ShaderArgument.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +76,9 @@
 		BBA8961C1FB251B200A8716F /* Triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
 		BBA896211FB2548A00A8716F /* LineNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LineNode.cpp; sourceTree = "<group>"; };
 		BBA896221FB2548A00A8716F /* LineNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LineNode.hpp; sourceTree = "<group>"; };
+		BBA896241FB2589400A8716F /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		BBA896251FB2589400A8716F /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		BBA896271FB25AE100A8716F /* Math.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Math.hpp; sourceTree = "<group>"; };
 		BBCB427C1FAD07570050C4E1 /* GraphicsEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GraphicsEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBCB427F1FAD07570050C4E1 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		BBCB42871FAD07610050C4E1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -90,8 +96,8 @@
 		BBCB429C1FAD11370050C4E1 /* Simple.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Simple.fs; sourceTree = "<group>"; };
 		BBCB429F1FAD14F60050C4E1 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		BBCB42A01FAD14F60050C4E1 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
-		BBCB42A31FAD19E90050C4E1 /* Program.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
-		BBCB42A41FAD19E90050C4E1 /* Program.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Program.hpp; sourceTree = "<group>"; };
+		BBCB42A31FAD19E90050C4E1 /* ShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
+		BBCB42A41FAD19E90050C4E1 /* ShaderProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
 		BBCB42A61FAD1B090050C4E1 /* FragmentShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FragmentShader.cpp; sourceTree = "<group>"; };
 		BBCB42A71FAD1B090050C4E1 /* FragmentShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FragmentShader.hpp; sourceTree = "<group>"; };
 		BBCB42A91FAD1B110050C4E1 /* VertexShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexShader.cpp; sourceTree = "<group>"; };
@@ -116,6 +122,10 @@
 		BBCB42C91FAD5EF50050C4E1 /* Primitive.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Primitive.hpp; sourceTree = "<group>"; };
 		BBCB42CB1FAD65780050C4E1 /* Sphere.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
 		BBCB42CC1FAD65780050C4E1 /* Sphere.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sphere.hpp; sourceTree = "<group>"; };
+		BBD184921FB50989009F2FA4 /* DisplayFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayFile.cpp; sourceTree = "<group>"; };
+		BBD184931FB50989009F2FA4 /* DisplayFile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DisplayFile.hpp; sourceTree = "<group>"; };
+		BBD184951FB53B09009F2FA4 /* ShaderArgument.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderArgument.cpp; sourceTree = "<group>"; };
+		BBD184961FB53B09009F2FA4 /* ShaderArgument.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderArgument.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,8 +213,10 @@
 				BBCB42A71FAD1B090050C4E1 /* FragmentShader.hpp */,
 				BBCB42A91FAD1B110050C4E1 /* VertexShader.cpp */,
 				BBCB42AA1FAD1B110050C4E1 /* VertexShader.hpp */,
-				BBCB42A31FAD19E90050C4E1 /* Program.cpp */,
-				BBCB42A41FAD19E90050C4E1 /* Program.hpp */,
+				BBCB42A31FAD19E90050C4E1 /* ShaderProgram.cpp */,
+				BBCB42A41FAD19E90050C4E1 /* ShaderProgram.hpp */,
+				BBD184951FB53B09009F2FA4 /* ShaderArgument.cpp */,
+				BBD184961FB53B09009F2FA4 /* ShaderArgument.hpp */,
 				BBCB42AC1FAD1F060050C4E1 /* Node.cpp */,
 				BBCB42AD1FAD1F060050C4E1 /* Node.hpp */,
 				BB7131AD1FAE682200481B94 /* RenderNode.cpp */,
@@ -215,6 +227,11 @@
 				BB7131AB1FAE67BE00481B94 /* PointNode.hpp */,
 				BBA896211FB2548A00A8716F /* LineNode.cpp */,
 				BBA896221FB2548A00A8716F /* LineNode.hpp */,
+				BBA896241FB2589400A8716F /* Camera.cpp */,
+				BBA896251FB2589400A8716F /* Camera.hpp */,
+				BBA896271FB25AE100A8716F /* Math.hpp */,
+				BBD184921FB50989009F2FA4 /* DisplayFile.cpp */,
+				BBD184931FB50989009F2FA4 /* DisplayFile.hpp */,
 				BBCB42C11FAD5D6A0050C4E1 /* Mesh */,
 				BBCB42A21FAD19C90050C4E1 /* Shaders */,
 			);
@@ -238,8 +255,8 @@
 		BBCB42A21FAD19C90050C4E1 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				BBCB429B1FAD112B0050C4E1 /* Simple.vs */,
 				BBCB429C1FAD11370050C4E1 /* Simple.fs */,
+				BBCB429B1FAD112B0050C4E1 /* Simple.vs */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -316,12 +333,15 @@
 			files = (
 				BBCB42C71FAD5EBC0050C4E1 /* Cone.cpp in Sources */,
 				BBCB42C41FAD5D780050C4E1 /* Cube.cpp in Sources */,
+				BBA896261FB2589400A8716F /* Camera.cpp in Sources */,
 				BBA8961D1FB251B200A8716F /* Triangle.cpp in Sources */,
+				BBD184941FB50989009F2FA4 /* DisplayFile.cpp in Sources */,
 				BB7131AC1FAE67BE00481B94 /* PointNode.cpp in Sources */,
 				BB63E3881FB100FB0022E530 /* Rectangle.cpp in Sources */,
 				BB63E38B1FB102540022E530 /* Square.cpp in Sources */,
 				BBCB42CD1FAD65780050C4E1 /* Sphere.cpp in Sources */,
-				BBCB42A51FAD19E90050C4E1 /* Program.cpp in Sources */,
+				BBCB42A51FAD19E90050C4E1 /* ShaderProgram.cpp in Sources */,
+				BBD184971FB53B09009F2FA4 /* ShaderArgument.cpp in Sources */,
 				BBCB42AE1FAD1F060050C4E1 /* Node.cpp in Sources */,
 				BBCB42CA1FAD5EF50050C4E1 /* Primitive.cpp in Sources */,
 				BBCB42A81FAD1B090050C4E1 /* FragmentShader.cpp in Sources */,

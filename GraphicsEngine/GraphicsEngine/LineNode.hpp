@@ -18,7 +18,7 @@ public:
     
     LineNode(Vector3 origin, Vector3 destin);
     
-    virtual void draw();
+    virtual void draw(glm::mat4 base);
     
     void setOrigin(Vector3 origin);
     void setDestination(Vector3 destin);
@@ -29,7 +29,6 @@ public:
     Vector3 getDestination();
     Color getOriginColor();
     Color getDestinationColor();
-    
     
 protected:
     

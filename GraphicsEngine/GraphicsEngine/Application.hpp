@@ -19,6 +19,9 @@
 
 #include "Size.hpp"
 #include "Node.hpp"
+#include "Camera.hpp"
+#include "Cone.hpp"
+#include "MeshNode.hpp"
 
 class Application
 {
@@ -34,12 +37,18 @@ public:
     
 private:
     
+    Camera *camera;
+    
     std::vector<Node*> nodes;
     
     Size windowSize;
     std::string windowTitle;
     
     GLFWwindow *window;
+    Cone *cone;
+    MeshNode *coneNode;
+    GLfloat hue;
+    std::vector<GLfloat> hutses;
     
     void init();
     void createWindow();

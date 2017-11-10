@@ -10,7 +10,7 @@
 #define RenderNode_hpp
 
 #include "Node.hpp"
-#include "Program.hpp"
+#include "ShaderProgram.hpp"
 
 class RenderNode : public Node
 {
@@ -18,14 +18,14 @@ public:
     
     RenderNode();
     
-    void setProgram(Program *program);
-    Program *getProgram();
+    void setProgram(ShaderProgram *program);
+    ShaderProgram *getProgram();
     
-    virtual void draw();
+    virtual void draw(glm::mat4 base);
     
 protected:
     
-    Program *program;
+    ShaderProgram *program;
 };
 
 #endif /* RenderNode_hpp */

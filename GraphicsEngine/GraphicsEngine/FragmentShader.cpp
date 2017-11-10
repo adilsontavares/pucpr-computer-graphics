@@ -9,6 +9,6 @@
 #include "FragmentShader.hpp"
 
 FragmentShader::FragmentShader(const std::string& path)
-: Shader(ShaderType::FRAGMENT, path)
+: Shader(Shader::Type::FRAGMENT, path)
 {
 }

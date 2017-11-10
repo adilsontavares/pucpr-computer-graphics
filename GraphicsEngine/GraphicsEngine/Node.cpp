@@ -20,7 +20,7 @@ void Node::update(float delta)
 {
 }
 
-void Node::draw()
+void Node::draw(glm::mat4 base)
 {
 }
 

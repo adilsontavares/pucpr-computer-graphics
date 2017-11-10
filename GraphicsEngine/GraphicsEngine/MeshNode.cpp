@@ -13,6 +13,15 @@
 MeshNode::MeshNode() : RenderNode()
 {
     this->mesh = 0;
+    
+    glGenBuffers(1, &vertexBuffer);
+    glGenBuffers(1, &elementBuffer);
+    glGenBuffers(1, &colorBuffer);
+    glGenVertexArrays(1, &arrayId);
+    glBindVertexArray(arrayId);
+    
+    matrix = new glm::mat4(1);
+    program->setUniform("MVP", matrix, ShaderArgument::Type::MATRIX4);
 }
 
 MeshNode::MeshNode(Mesh *mesh) : MeshNode()
@@ -27,21 +36,25 @@ void MeshNode::setMesh(Mesh *mesh)
         return;
     
     mesh->assertConsistency();
-    
-    glGenBuffers(1, &vertexBuffer);
+}
+
+void MeshNode::update(GLfloat delta)
+{
+}
+
+void MeshNode::updateBuffers()
+{
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, mesh->vertices.size() * 3 * sizeof(mesh->vertices[0]), mesh->vertices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, mesh->vertices.size() * 3 * sizeof(mesh->vertices[0]), mesh->vertices.data(), GL_DYNAMIC_DRAW);
     
-    glGenBuffers(1, &elementBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh->faces.size() * sizeof(mesh->faces[0]), mesh->faces.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh->faces.size() * sizeof(mesh->faces[0]), mesh->faces.data(), GL_DYNAMIC_DRAW);
     
-    glGenBuffers(1, &colorBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-    glBufferData(GL_ARRAY_BUFFER, mesh->colors.size() * sizeof(mesh->colors[0]), mesh->colors.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, mesh->colors.size() * sizeof(mesh->colors[0]), mesh->colors.data(), GL_DYNAMIC_DRAW);
     
-    glGenVertexArrays(1, &arrayId);
-    glBindVertexArray(arrayId);
+    program->setAttribute("position", &mesh->vertices[0], GLuint(mesh->vertices.size()), ShaderArgument::Type::VECTOR3);
+    program->setAttribute("vertexColor", &mesh->colors[0], GLuint(mesh->colors.size()), ShaderArgument::Type::COLOR);
 }
 
 Mesh *MeshNode::getMesh()
@@ -49,32 +62,25 @@ Mesh *MeshNode::getMesh()
     return mesh;
 }
 
-void MeshNode::draw()
+void MeshNode::draw(glm::mat4 base)
 {
     if (mesh && program)
     {
-        program->use();
+        if (mesh->isDirty())
+        {
+            updateBuffers();
+            mesh->setDirty(false);
+        }
         
-        glEnableVertexAttribArray(0);
-        glEnableVertexAttribArray(1);
+        *matrix = base * getMatrix();
         
-        glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-        
-        glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-        glVertexAttribPointer(1, 4, GL_FLOAT, GL_TRUE, 0, 0);
-        
-        auto mvp = glGetUniformLocation(program->getId(), "MVP");
-        auto matrix = getMatrix();
-        
-        glUniformMatrix4fv(mvp, 1, GL_FALSE, &matrix[0][0]);
+        program->begin();
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer);
         glDrawElements(GL_TRIANGLES, GLsizei(mesh->faces.size()), GL_UNSIGNED_INT, 0);
         
-        glDisableVertexAttribArray(1);
-        glDisableVertexAttribArray(0);
+        program->end();
     }
     
-    Node::draw();
+    Node::draw(base);
 }

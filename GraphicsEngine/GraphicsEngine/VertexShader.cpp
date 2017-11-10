@@ -9,6 +9,6 @@
 #include "VertexShader.hpp"
 
 VertexShader::VertexShader(const std::string& path)
-: Shader(ShaderType::VERTEX, path)
+: Shader(Shader::Type::VERTEX, path)
 {
 }

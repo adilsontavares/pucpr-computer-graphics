@@ -18,7 +18,7 @@ public:
     
     PointNode();
     
-    virtual void draw();
+    virtual void draw(glm::mat4 base);
     
     virtual void setPosition(Vector3 position);
     

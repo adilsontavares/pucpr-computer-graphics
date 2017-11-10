@@ -11,18 +11,20 @@
 
 #include <iostream>
 #include <GL/glew.h>
-
-enum ShaderType
-{
-    VERTEX,
-    FRAGMENT
-};
+#include <glm/glm.hpp>
+#include <map>
 
 class Shader
 {
 public:
     
-    Shader(ShaderType type, const std::string& file);
+    enum Type
+    {
+        VERTEX,
+        FRAGMENT
+    };
+    
+    Shader(Type type, const std::string& file);
     
     GLuint getId();
     
@@ -30,7 +32,7 @@ private:
     
     GLuint id;
     
-    ShaderType type;
+    Type type;
     std::string filePath;
     std::string content;
     

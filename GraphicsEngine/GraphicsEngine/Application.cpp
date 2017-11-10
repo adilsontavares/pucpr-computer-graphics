@@ -17,6 +17,8 @@
 #include "Cylinder.hpp"
 #include "Triangle.hpp"
 #include "LineNode.hpp"
+#include "Cone.hpp"
+#include "FragmentShader.hpp"
 
 using namespace std;
 
@@ -32,8 +34,8 @@ void Application::init()
 {
     assert(glfwInit());
     
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 }
@@ -50,33 +52,47 @@ void Application::run()
 
 void Application::setupNodes()
 {
-//    auto mesh = new Triangle(0.5);
-//    auto node = new MeshNode(mesh);
-    auto node = new LineNode(Vector3(0, 0, 0), Vector3(0.5, 0.5, 0));
-    node->setOriginColor(Color::red());
-    node->setDestinationColor(Color::green());
+    cone = new Cone(0.5, 1);
+    coneNode = new MeshNode(cone);
+    addChild(coneNode);
     
-//    node->setColor(Color::green());
-    addChild(node);
-    
-//    auto cube = new Cube(1);
-//    auto cubeNode = new MeshNode(cube);
-//    addChild(cubeNode);
+    camera = new Camera();
+    camera->setPosition(Vector3(0, 0, -10));
+    addChild(camera);
 }
 
 void Application::update()
 {
+    static float x = 0;
+    x += 0.03;
+    
+    hue = sin(x) * 0.5 + 0.5;
+    cone->setRadius((sin(x) * 0.5 + 0.5) * 0.9 + 0.1);
+    cone->setDivisions(GLuint((sin(x) * 0.5 + 0.5) * 20 + 3));
+    
     for (auto node : nodes)
     {
-        node->setRotation(Vector3(-45, node->getRotation().y + 0.01, 0));
-        node->update(0);
+        if (node != camera)
+        {
+            node->setRotation(Vector3(0, x * 4.0, 0));
+            node->update(0);
+        }
     }
+    
+    auto radius = 1.5;
+    
+    camera->setPosition(Vector3(cos(x) * radius, sin(x) * radius, -3));
 }
 
 void Application::render()
 {
+    if (!camera)
+        return;
+    
+    glm::mat4 base = camera->getMatrix();
+    
     for (auto node : nodes)
-        node->draw();
+        node->draw(base);
 }
 
 void Application::mainLoop()

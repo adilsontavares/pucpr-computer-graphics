@@ -19,6 +19,8 @@ class Mesh
 {
 public:
     
+    Mesh();
+    
     std::vector<Vector3> vertices;
     std::vector<GLuint> faces;
     std::vector<Color> colors;
@@ -30,7 +32,12 @@ public:
     void assertConsistency();
     void clear();
     
+    GLboolean isDirty();
+    void setDirty(GLboolean dirty);
+    
 protected:
+    
+    GLboolean dirty;
     
     GLuint loopVertexIndex(GLuint index);
 };

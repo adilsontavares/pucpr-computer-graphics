@@ -41,11 +41,11 @@ Color PointNode::getColor()
     return color;
 }
 
-void PointNode::draw()
+void PointNode::draw(glm::mat4 base)
 {
     if (program)
     {
-        program->use();
+        program->begin();
         
         glEnableVertexAttribArray(0);
         glEnableVertexAttribArray(1);
@@ -57,12 +57,14 @@ void PointNode::draw()
         glVertexAttribPointer(1, 4, GL_FLOAT, GL_TRUE, 0, 0);
         
         auto mvp = glGetUniformLocation(program->getId(), "MVP");
-        auto matrix = getMatrix();
+        auto matrix = base * getMatrix();
         glUniformMatrix4fv(mvp, 1, GL_FALSE, &matrix[0][0]);
         
         glDrawArrays(GL_POINTS, 0, 3);
         
         glDisableVertexAttribArray(1);
         glDisableVertexAttribArray(0);
+        
+        program->end();
     }
 }

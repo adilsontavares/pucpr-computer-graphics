@@ -9,12 +9,19 @@
 #include "Mesh.hpp"
 #include <cassert>
 
+Mesh::Mesh()
+{
+    dirty = false;
+}
+
 void Mesh::setVertices(Vector3 *vertices, GLuint count)
 {
     this->vertices.clear();
     
     for (GLuint i = 0; i < count; ++i)
         this->vertices.push_back(vertices[i]);
+    
+    dirty = true;
 }
 
 void Mesh::setFaces(GLuint *faces, GLuint count)
@@ -23,6 +30,8 @@ void Mesh::setFaces(GLuint *faces, GLuint count)
     
     for (GLuint i = 0; i < count; ++i)
         this->faces.push_back(faces[i]);
+    
+    dirty = true;
 }
 
 void Mesh::setColors(Color *colors, GLuint count)
@@ -31,6 +40,8 @@ void Mesh::setColors(Color *colors, GLuint count)
     
     for (GLuint i = 0; i < count; ++i)
         this->colors.push_back(colors[i]);
+    
+    dirty = true;
 }
 
 void Mesh::clear()
@@ -38,6 +49,8 @@ void Mesh::clear()
     vertices.clear();
     faces.clear();
     colors.clear();
+    
+    dirty = true;
 }
 
 void Mesh::assertConsistency()
@@ -68,6 +81,16 @@ void Mesh::assertConsistency()
         printf("Mesh colors (%d) has more values than vertices (%d).\n", GLsizei(colors.size()), GLsizei(vertices.size()));
         assert(false);
     }
+}
+
+GLboolean Mesh::isDirty()
+{
+    return dirty;
+}
+
+void Mesh::setDirty(GLboolean dirty)
+{
+    this->dirty = dirty;
 }
 
 GLuint Mesh::loopVertexIndex(GLuint index)

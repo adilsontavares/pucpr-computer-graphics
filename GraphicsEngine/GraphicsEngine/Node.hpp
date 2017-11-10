@@ -13,6 +13,7 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include "Vector3.hpp"
+#include "Math.hpp"
 
 class Node
 {
@@ -20,7 +21,7 @@ public:
     
     Node();
     
-    void update(float delta);    
+    virtual void update(GLfloat delta);    
     
     virtual void setPosition(Vector3 position);
     virtual void setRotation(Vector3 rotation);
@@ -30,9 +31,9 @@ public:
     Vector3 getRotation();
     Vector3 getScale();
     
-    glm::mat4 getMatrix();
+    virtual glm::mat4 getMatrix();
     
-    virtual void draw();
+    virtual void draw(glm::mat4 base);
     
 protected:
     

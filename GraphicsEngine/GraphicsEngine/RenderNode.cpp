@@ -10,19 +10,19 @@
 
 RenderNode::RenderNode()
 {
-    program = Program::simple();
+    program = ShaderProgram::simple();
 }
 
-void RenderNode::setProgram(Program *program)
+void RenderNode::setProgram(ShaderProgram *program)
 {
     this->program = program;
 }
 
-Program *RenderNode::getProgram()
+ShaderProgram *RenderNode::getProgram()
 {
     return program;
 }
 
-void RenderNode::draw()
+void RenderNode::draw(glm::mat4 base)
 {
 }
