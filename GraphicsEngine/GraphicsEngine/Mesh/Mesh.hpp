@@ -15,6 +15,7 @@
 #include "Vector3.hpp"
 #include "Color.hpp"
 #include "DisplayFileObject.hpp"
+#include "ShaderProgram.hpp"
 
 class Mesh
 {
@@ -22,6 +23,7 @@ public:
     
     Mesh();
     
+    std::string name;
     std::vector<Vector3> vertices;
     std::vector<GLuint> faces;
     std::vector<Color> colors;
@@ -35,9 +37,23 @@ public:
     
     GLboolean isDirty();
     void setDirty(GLboolean dirty);
+
+    void setDrawMode(GLuint mode);
+    GLuint getDrawMode();
+    
+    void setName(const std::string& name);
+    std::string getName();
+    
+    void updateBuffers(ShaderProgram *program);
+    void render();
     
 protected:
     
+    GLuint vertexBuffer;
+    GLuint colorBuffer;
+    GLuint elementBuffer;
+    
+    GLuint drawMode;
     GLboolean dirty;
     
     GLuint loopVertexIndex(GLuint index);

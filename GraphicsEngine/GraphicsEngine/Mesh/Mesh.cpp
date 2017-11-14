@@ -11,7 +11,44 @@
 
 Mesh::Mesh()
 {
+    name = "unnamed";
+    drawMode = GL_TRIANGLES;
     dirty = false;
+    
+    glGenBuffers(1, &vertexBuffer);
+    glGenBuffers(1, &elementBuffer);
+    glGenBuffers(1, &colorBuffer);
+}
+
+void Mesh::updateBuffers(ShaderProgram *program)
+{
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * 3 * sizeof(vertices[0]), vertices.data(), GL_DYNAMIC_DRAW);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, faces.size() * sizeof(faces[0]), faces.data(), GL_DYNAMIC_DRAW);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
+    glBufferData(GL_ARRAY_BUFFER, colors.size() * sizeof(colors[0]), colors.data(), GL_DYNAMIC_DRAW);
+    
+    program->setAttribute("position", &vertices[0], GLuint(vertices.size()), ShaderArgument::Type::VECTOR3);
+    program->setAttribute("vertexColor", &colors[0], GLuint(colors.size()), ShaderArgument::Type::COLOR);
+}
+
+void Mesh::render()
+{
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer);
+    glDrawElements(drawMode, GLsizei(faces.size()), GL_UNSIGNED_INT, 0);
+}
+
+void Mesh::setName(const std::string &name)
+{
+    this->name = name;
+}
+
+std::string Mesh::getName()
+{
+    return name;
 }
 
 void Mesh::setVertices(Vector3 *vertices, GLuint count)
@@ -22,6 +59,16 @@ void Mesh::setVertices(Vector3 *vertices, GLuint count)
         this->vertices.push_back(vertices[i]);
     
     dirty = true;
+}
+
+void Mesh::setDrawMode(GLuint mode)
+{
+    drawMode = mode;
+}
+
+GLuint Mesh::getDrawMode()
+{
+    return drawMode;
 }
 
 void Mesh::setFaces(GLuint *faces, GLuint count)

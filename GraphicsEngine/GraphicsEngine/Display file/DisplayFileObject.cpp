@@ -59,7 +59,7 @@ Node *DisplayFileObject::instantiate()
         case BOX: return createMeshNode(Box::create(this));
         case CUBE: return createMeshNode(Cube::create(this));
 //        case CYLINDER: return createMeshNode(new Cylinder(this));
-//        case SPHERE: return createMeshNode(new Sphere(this));
+        case SPHERE: return createMeshNode(Sphere::create(this));
 //        case CONE: return createMeshNode(new Cone(this));
 //
 //        case LINE: return new LineNode(this);
@@ -79,7 +79,7 @@ GLboolean DisplayFileObject::hasProperty(const char *path)
 MeshNode *DisplayFileObject::createMeshNode(Mesh *mesh)
 {
     auto node = MeshNode::create(this);
-    node->setMesh(mesh);
+    node->addMesh(mesh);
     
     return node;
 }

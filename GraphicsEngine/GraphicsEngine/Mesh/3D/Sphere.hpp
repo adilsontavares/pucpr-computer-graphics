@@ -17,6 +17,8 @@ public:
     
     Sphere(GLfloat radius, GLuint divisions = 8);
     
+    static Sphere *create(DisplayFileObject *config);
+    
     void setDivisions(GLuint divisions);
     void setRadius(GLfloat radius);
     

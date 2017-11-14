@@ -21,23 +21,23 @@ public:
     MeshNode();
     MeshNode(Mesh *mesh);
     
-    void setMesh(Mesh *mesh);
-    Mesh *getMesh();
+    void addMesh(Mesh *mesh);
+    void removeMesh(Mesh *mesh);
+    void removeAllMeshes();
+    
+    std::vector<Mesh*> meshes;
   
     virtual void update(GLfloat delta);
     virtual void draw(glm::mat4 base);
     
     static MeshNode *create(DisplayFileObject *config);
     
-private:
+    GLboolean isDirty();
     
-    GLuint vertexBuffer;
-    GLuint elementBuffer;
-    GLuint colorBuffer;
+private:
     
     glm::mat4 *matrix;
     GLuint arrayId;
-    Mesh *mesh;
     
     void updateBuffers();
 };

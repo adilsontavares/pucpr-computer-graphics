@@ -19,9 +19,22 @@ Sphere::Sphere(GLfloat radius, GLuint divisions) : Primitive()
     reset();
 }
 
+Sphere *Sphere::create(DisplayFileObject *config)
+{
+    config->assertFloat("radius");
+    
+    GLfloat radius = config->getFloat("radius");
+    GLuint divisions = 8;
+    
+    if (config->hasProperty("divisions"))
+        divisions = config->getInt("divisions");
+    
+    return new Sphere(radius, divisions);
+}
+
 void Sphere::generate()
 {
-    // CREATE SPHERE HERE!
+    
 }
 
 void Sphere::setDivisions(GLuint divisions)
