@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB171DD21FBB389B0058C331 /* DisplayFileObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB171DD01FBB389B0058C331 /* DisplayFileObject.cpp */; };
+		BB171DD81FBB564C0058C331 /* DisplayFile.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB171DD71FBB50940058C331 /* DisplayFile.json */; };
 		BB63E3881FB100FB0022E530 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB63E3861FB100FB0022E530 /* Rectangle.cpp */; };
 		BB63E38B1FB102540022E530 /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB63E3891FB102540022E530 /* Square.cpp */; };
 		BB63E38E1FB1037A0022E530 /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB63E38C1FB1037A0022E530 /* Circle.cpp */; };
@@ -54,12 +56,18 @@
 			files = (
 				BBCB429D1FAD13910050C4E1 /* Simple.vs in CopyFiles */,
 				BBCB429E1FAD13930050C4E1 /* Simple.fs in CopyFiles */,
+				BB171DD81FBB564C0058C331 /* DisplayFile.json in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BB171DD01FBB389B0058C331 /* DisplayFileObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayFileObject.cpp; sourceTree = "<group>"; };
+		BB171DD11FBB389B0058C331 /* DisplayFileObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DisplayFileObject.hpp; sourceTree = "<group>"; };
+		BB171DD41FBB3E060058C331 /* Primitives2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Primitives2D.h; sourceTree = "<group>"; };
+		BB171DD51FBB3E100058C331 /* Primitives3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Primitives3D.h; sourceTree = "<group>"; };
+		BB171DD71FBB50940058C331 /* DisplayFile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DisplayFile.json; sourceTree = "<group>"; };
 		BB63E3861FB100FB0022E530 /* Rectangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
 		BB63E3871FB100FB0022E530 /* Rectangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Rectangle.hpp; sourceTree = "<group>"; };
 		BB63E3891FB102540022E530 /* Square.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Square.cpp; sourceTree = "<group>"; };
@@ -146,6 +154,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB171DD31FBB38A00058C331 /* Display file */ = {
+			isa = PBXGroup;
+			children = (
+				BBD184921FB50989009F2FA4 /* DisplayFile.cpp */,
+				BBD184931FB50989009F2FA4 /* DisplayFile.hpp */,
+				BB171DD01FBB389B0058C331 /* DisplayFileObject.cpp */,
+				BB171DD11FBB389B0058C331 /* DisplayFileObject.hpp */,
+			);
+			path = "Display file";
+			sourceTree = "<group>";
+		};
+		BB171DD61FBB505E0058C331 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BB171DD71FBB50940058C331 /* DisplayFile.json */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		BB63E3841FB100CC0022E530 /* 3D */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,8 +257,10 @@
 				BBA896241FB2589400A8716F /* Camera.cpp */,
 				BBA896251FB2589400A8716F /* Camera.hpp */,
 				BBA896271FB25AE100A8716F /* Math.hpp */,
-				BBD184921FB50989009F2FA4 /* DisplayFile.cpp */,
-				BBD184931FB50989009F2FA4 /* DisplayFile.hpp */,
+				BB171DD41FBB3E060058C331 /* Primitives2D.h */,
+				BB171DD51FBB3E100058C331 /* Primitives3D.h */,
+				BB171DD61FBB505E0058C331 /* Config */,
+				BB171DD31FBB38A00058C331 /* Display file */,
 				BBCB42C11FAD5D6A0050C4E1 /* Mesh */,
 				BBCB42A21FAD19C90050C4E1 /* Shaders */,
 			);
@@ -346,6 +375,7 @@
 				BBCB42CA1FAD5EF50050C4E1 /* Primitive.cpp in Sources */,
 				BBCB42A81FAD1B090050C4E1 /* FragmentShader.cpp in Sources */,
 				BBA896231FB2548A00A8716F /* LineNode.cpp in Sources */,
+				BB171DD21FBB389B0058C331 /* DisplayFileObject.cpp in Sources */,
 				BBCB42911FAD08120050C4E1 /* Application.cpp in Sources */,
 				BBCB42A11FAD14F60050C4E1 /* Shader.cpp in Sources */,
 				BB7131AF1FAE682200481B94 /* RenderNode.cpp in Sources */,

@@ -49,8 +49,6 @@ void Mesh::clear()
     vertices.clear();
     faces.clear();
     colors.clear();
-    
-    dirty = true;
 }
 
 void Mesh::assertConsistency()

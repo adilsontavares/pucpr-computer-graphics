@@ -18,8 +18,20 @@ DisplayFile::DisplayFile(const std::string& path)
 {
     std::string contents = File::readAll(path);
     
-    Document document;
-    document.Parse(contents.c_str());
+    auto document = new Document();
+    document->Parse(contents.c_str());
     
-    assert(document.IsArray());
+    assert(document->IsArray());
+    
+    const Value& root = document->GetArray();
+    for (auto value = root.Begin(); value != root.End(); ++value)
+    {
+        auto object = new DisplayFileObject(*value);
+        objects.push_back(object);
+    }
+}
+
+std::vector<DisplayFileObject*> DisplayFile::getObjects()
+{
+    return objects;
 }

@@ -75,14 +75,16 @@ void ShaderProgram::setArgument(const std::string &name, GLvoid *value, GLuint s
 
     auto it = arguments.find(name);
     if (it == arguments.end())
+    {
         arg = new ShaderArgument(type, size);
+    }
     else
     {
         arg = it->second;
         arg->type = type;
         arg->count = size;
     }
-    
+
     arg->isUniform = isUniform;
     arg->location = isUniform ? glGetUniformLocation(id, name.c_str()) : glGetAttribLocation(id, name.c_str());
     arg->value = value;

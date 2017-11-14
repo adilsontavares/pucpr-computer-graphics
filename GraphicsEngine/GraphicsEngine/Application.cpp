@@ -9,21 +9,15 @@
 #include "Application.hpp"
 #include <cassert>
 #include "File.hpp"
-#include "MeshNode.hpp"
-#include "Color.hpp"
-#include "PointNode.hpp"
-#include "Cube.hpp"
-#include "Square.hpp"
-#include "Cylinder.hpp"
-#include "Triangle.hpp"
-#include "LineNode.hpp"
-#include "Cone.hpp"
 #include "FragmentShader.hpp"
+#include "DisplayFile.hpp"
 
 using namespace std;
 
 Application::Application(string title, int width, int height)
 {
+    camera = 0;
+    
     windowTitle = title;
     windowSize = Size(width, height);
     
@@ -38,6 +32,7 @@ void Application::init()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_SAMPLES, 4);
 }
 
 void Application::run()
@@ -45,43 +40,40 @@ void Application::run()
     createWindow();
     setupGlew();
     setupGL();
+    setupCamera();
     setupNodes();
     
     mainLoop();
 }
 
+void Application::setupCamera()
+{
+    camera = new Camera();
+    camera->setAspectRatio(windowSize.width / windowSize.height);
+    camera->setPosition(Vector3(0, 0, 10));
+    camera->lookAt(Vector3());
+    addChild(camera);
+}
+
 void Application::setupNodes()
 {
-    cone = new Cone(0.5, 1);
-    coneNode = new MeshNode(cone);
-    addChild(coneNode);
+    auto file = DisplayFile("assets/DisplayFile.json");
+    auto objects = file.getObjects();
     
-    camera = new Camera();
-    camera->setPosition(Vector3(0, 0, -10));
-    addChild(camera);
+    for (auto object : objects)
+    {
+        auto node = object->instantiate();
+        addChild(node);
+    }
 }
 
 void Application::update()
 {
-    static float x = 0;
-    x += 0.03;
-    
-    hue = sin(x) * 0.5 + 0.5;
-    cone->setRadius((sin(x) * 0.5 + 0.5) * 0.9 + 0.1);
-    cone->setDivisions(GLuint((sin(x) * 0.5 + 0.5) * 20 + 3));
-    
     for (auto node : nodes)
     {
         if (node != camera)
-        {
-            node->setRotation(Vector3(0, x * 4.0, 0));
             node->update(0);
-        }
     }
-    
-    auto radius = 1.5;
-    
-    camera->setPosition(Vector3(cos(x) * radius, sin(x) * radius, -3));
 }
 
 void Application::render()
@@ -136,6 +128,11 @@ void Application::setupGL()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     glEnable(GL_DEPTH_TEST);
+    
+    glEnable(GL_POLYGON_SMOOTH_HINT);
+    glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
+    
+//    glEnable(GL_MULTISAMPLE);
 }
 
 void Application::addChild(Node *node)

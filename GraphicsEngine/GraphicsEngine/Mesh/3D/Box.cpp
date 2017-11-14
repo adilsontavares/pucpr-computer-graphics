@@ -7,6 +7,20 @@
 //
 
 #include "Box.hpp"
+#include <cassert>
+
+Box* Box::create(DisplayFileObject *config)
+{
+    config->assertFloat("width");
+    config->assertFloat("height");
+    config->assertFloat("depth");
+    
+    GLfloat width = config->getFloat("width");
+    GLfloat height = config->getFloat("height");
+    GLfloat depth = config->getFloat("depth");
+    
+    return new Box(width, height, depth);
+}
 
 Box::Box(GLfloat width, GLfloat height, GLfloat depth) : Primitive()
 {

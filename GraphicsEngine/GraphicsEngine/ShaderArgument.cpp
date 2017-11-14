@@ -11,6 +11,7 @@
 
 ShaderArgument::ShaderArgument(ShaderArgument::Type type, GLuint count)
 {
+    this->buffer = 0;
     this->type = type;
     this->count = count;
 }
@@ -78,7 +79,9 @@ void ShaderArgument::load()
     
     if (!isUniform)
     {
-        glGenBuffers(1, &buffer);
+        if (!buffer)
+            glGenBuffers(1, &buffer);
+        
         glBindBuffer(GL_ARRAY_BUFFER, buffer);
         glBufferData(GL_ARRAY_BUFFER, bytes, value, GL_DYNAMIC_DRAW);
     }

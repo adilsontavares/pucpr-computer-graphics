@@ -45,16 +45,13 @@ private:
     std::string windowTitle;
     
     GLFWwindow *window;
-    Cone *cone;
-    MeshNode *coneNode;
-    GLfloat hue;
-    std::vector<GLfloat> hutses;
     
     void init();
     void createWindow();
     void setupGlew();
     void setupGL();
     void setupNodes();
+    void setupCamera();
     
     void mainLoop();
     

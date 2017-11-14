@@ -8,12 +8,27 @@
 
 #include "Node.hpp"
 #include <glm/gtc/matrix_transform.hpp>
+#include "DisplayFileObject.hpp"
+
+using namespace rapidjson;
 
 Node::Node()
 {
     position = Vector3();
     rotation = Vector3();
     scale = Vector3(1);
+}
+
+void Node::loadConfig(DisplayFileObject *config)
+{
+    if (config->hasProperty("position"))
+        setPosition(config->getVector3("position"));
+    
+    if (config->hasProperty("rotation"))
+        setRotation(config->getVector3("rotation"));
+    
+    if (config->hasProperty("scale"))
+        setScale(config->getVector3("scale"));
 }
 
 void Node::update(float delta)

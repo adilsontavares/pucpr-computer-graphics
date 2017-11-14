@@ -14,6 +14,9 @@
 #include <glm/glm.hpp>
 #include "Vector3.hpp"
 #include "Math.hpp"
+#include <rapidjson/document.h>
+
+class DisplayFileObject;
 
 class Node
 {
@@ -40,6 +43,8 @@ protected:
     Vector3 position;
     Vector3 rotation;
     Vector3 scale;
+    
+    virtual void loadConfig(DisplayFileObject *config);
 };
 
 #endif /* Node_hpp */

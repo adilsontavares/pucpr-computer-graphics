@@ -1,0 +1,18 @@
+[
+    {
+        "type": "box",
+        "width": 2,
+        "height": 2,
+        "depth": 5,
+        "position": "-3,0,0",
+        "rotation": "45,45,0",
+        "scale": "1,1,1",
+        "color": "#ff0000",
+        "visible": "true"
+    },
+    {
+        "type": "cube",
+        "size": 3,
+        "position": "3,0,0"
+    }
+]

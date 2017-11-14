@@ -14,6 +14,7 @@
 #include <vector>
 #include "Vector3.hpp"
 #include "Color.hpp"
+#include "DisplayFileObject.hpp"
 
 class Mesh
 {

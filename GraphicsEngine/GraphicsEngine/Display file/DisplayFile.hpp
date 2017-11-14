@@ -11,18 +11,21 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
+#include "DisplayFileObject.hpp"
 
 class DisplayFile
 {
 private:
     
+    std::vector<DisplayFileObject*> objects;
     std::string path;
     
 public:
     
     DisplayFile(const std::string& path);
     
-    
+    std::vector<DisplayFileObject*> getObjects();
 };
 
 #endif /* DisplayFile_hpp */

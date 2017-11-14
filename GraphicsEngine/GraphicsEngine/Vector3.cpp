@@ -26,6 +26,11 @@ Vector3::Vector3(GLfloat x, GLfloat y, GLfloat z)
     this->z = z;
 }
 
+Vector3::Vector3(const char *str)
+{
+    sscanf(str, "%f,%f,%f", &x, &y, &z);
+}
+
 GLfloat Vector3::magnitude()
 {
     return x * x + y * y + z * z;

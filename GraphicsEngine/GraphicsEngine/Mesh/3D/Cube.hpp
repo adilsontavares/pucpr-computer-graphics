@@ -20,6 +20,8 @@ public:
     void setSize(GLfloat size);
     GLfloat getSize();
     
+    static Cube *create(DisplayFileObject *config);
+    
 protected:
     
     GLfloat size;

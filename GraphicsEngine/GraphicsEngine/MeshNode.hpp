@@ -12,6 +12,7 @@
 #include "RenderNode.hpp"
 #include "Mesh.hpp"
 #include "ShaderProgram.hpp"
+#include "DisplayFileObject.hpp"
 
 class MeshNode : public RenderNode
 {
@@ -25,6 +26,8 @@ public:
   
     virtual void update(GLfloat delta);
     virtual void draw(glm::mat4 base);
+    
+    static MeshNode *create(DisplayFileObject *config);
     
 private:
     

@@ -7,6 +7,7 @@
 //
 
 #include "Camera.hpp"
+#include <iostream>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -59,7 +60,7 @@ glm::mat4 Camera::getMatrix()
     centerMat = glm::rotate(centerMat, glm::radians(rotation.y), glm::vec3(0, 1, 0));
     centerMat = glm::rotate(centerMat, glm::radians(rotation.z), glm::vec3(0, 0, 1));
     
-    auto center = centerMat * glm::vec4(0, 0, 10, 1);
+    auto center = centerMat * glm::vec4(0, 0, 0, 1);
     
     return glm::perspective(glm::radians(fieldOfView), aspectRatio, near, far) * glm::lookAt(pos, glm::vec3(center), up);
 }

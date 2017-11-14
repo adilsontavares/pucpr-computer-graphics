@@ -23,6 +23,7 @@ public:
     Vector3();
     Vector3(GLfloat v);
     Vector3(GLfloat x, GLfloat y, GLfloat z);
+    Vector3(const char *str);
     
     friend Vector3 operator + (const Vector3& a, const Vector3& b) { return Vector3(a.x + b.x, a.y + b.y, a.z + b.z); }
     friend Vector3 operator - (const Vector3& a, const Vector3& b) { return Vector3(a.x - b.x, a.y - b.y, a.z - b.z); }

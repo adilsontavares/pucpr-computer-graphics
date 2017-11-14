@@ -21,6 +21,7 @@ public:
     GLfloat a;
     
     Color();
+    Color(const char *hex);
     Color(GLfloat r, GLfloat g, GLfloat b);
     Color(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
     

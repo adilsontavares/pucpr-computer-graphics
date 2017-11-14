@@ -27,3 +27,9 @@ GLfloat Cube::getSize()
 {
     return size;
 }
+
+Cube *Cube::create(DisplayFileObject *config)
+{
+    config->assertFloat("size");
+    return new Cube(config->getFloat("size"));
+}

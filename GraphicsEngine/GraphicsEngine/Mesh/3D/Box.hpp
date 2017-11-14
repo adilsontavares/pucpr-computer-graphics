@@ -21,6 +21,8 @@ public:
     void setHeight(GLfloat height);
     void setDepth(GLfloat depth);
     
+    static Box *create(DisplayFileObject *config);
+    
 protected:
     
     GLfloat width;

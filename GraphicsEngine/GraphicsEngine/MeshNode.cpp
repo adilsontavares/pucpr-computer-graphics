@@ -29,6 +29,14 @@ MeshNode::MeshNode(Mesh *mesh) : MeshNode()
     setMesh(mesh);
 }
 
+MeshNode *MeshNode::create(DisplayFileObject *config)
+{
+    auto node = new MeshNode();
+    node->loadConfig(config);
+    
+    return node;
+}
+
 void MeshNode::setMesh(Mesh *mesh)
 {
     this->mesh = mesh;
