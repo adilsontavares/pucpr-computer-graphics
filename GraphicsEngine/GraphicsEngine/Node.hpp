@@ -37,14 +37,13 @@ public:
     virtual glm::mat4 getMatrix();
     
     virtual void draw(glm::mat4 base);
+    virtual void loadConfig(DisplayFileObject *config);
     
 protected:
     
     Vector3 position;
     Vector3 rotation;
     Vector3 scale;
-    
-    virtual void loadConfig(DisplayFileObject *config);
 };
 
 #endif /* Node_hpp */

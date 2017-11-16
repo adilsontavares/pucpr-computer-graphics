@@ -10,11 +10,18 @@
 
 Primitive::Primitive()
 {
+    reset();
+}
+
+void Primitive::generate()
+{
 }
 
 void Primitive::reset()
 {
-    clear();
+    removeAllMeshes();
     generate();
-    assertConsistency();
+    
+    for (auto it = meshes.begin(); it != meshes.end(); ++it)
+        it->assertConsistency();
 }

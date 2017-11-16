@@ -47,6 +47,8 @@ DisplayFileObject::Type DisplayFileObject::getType()
 
 Node *DisplayFileObject::instantiate()
 {
+    Node *node = 0;
+    
     switch (getType())
     {
 //        case CAMERA: return new Camera(this);
@@ -57,37 +59,32 @@ Node *DisplayFileObject::instantiate()
 //        case TRIANGLE: return createMeshNode(new Triangle(this));
 //
         case BOX:
-        {
-            auto node = MeshNode::create(this);
-            node->addMesh(Box::create(this));
-            return node;
-        }
+            node = Box::create(this);
+            break;
             
-        case CUBE: return createMeshNode(Cube::create(this));
+        case CUBE:
+            node = Cube::create(this);
+            break;
+            
 //        case CYLINDER: return createMeshNode(new Cylinder(this));
-        case SPHERE: return createMeshNode(Sphere::create(this));
+        case SPHERE:
+            node = Sphere::create(this);
+            break;
 //        case CONE: return createMeshNode(new Cone(this));
 //
 //        case LINE: return new LineNode(this);
 //        case POINT: return new PointNode(this);
-
-        default: return 0;
     }
     
-    return 0;
+    assert(node);
+    node->loadConfig(this);
+    
+    return node;
 }
 
 GLboolean DisplayFileObject::hasProperty(const char *path)
 {
     return value.HasMember(path);
-}
-
-MeshNode *DisplayFileObject::createMeshNode(Mesh *mesh)
-{
-    auto node = MeshNode::create(this);
-    node->addMesh(mesh);
-    
-    return node;
 }
 
 GLint DisplayFileObject::getInt(const char *path)

@@ -18,20 +18,24 @@ Rectangle::Rectangle(GLfloat width, GLfloat height)
 
 void Rectangle::generate()
 {
+    Mesh mesh;
+    
     const auto w2 = width * 0.5;
     const auto h2 = height * 0.5;
     
-    vertices.push_back(Vector3(-w2, -h2, 0));
-    vertices.push_back(Vector3( w2, -h2, 0));
-    vertices.push_back(Vector3( w2,  h2, 0));
-    vertices.push_back(Vector3(-w2,  h2, 0));
+    mesh.vertices.push_back(Vector3(-w2, -h2, 0));
+    mesh.vertices.push_back(Vector3( w2, -h2, 0));
+    mesh.vertices.push_back(Vector3( w2,  h2, 0));
+    mesh.vertices.push_back(Vector3(-w2,  h2, 0));
     
-    faces.push_back(0);
-    faces.push_back(1);
-    faces.push_back(2);
-    faces.push_back(2);
-    faces.push_back(3);
-    faces.push_back(0);
+    mesh.faces.push_back(0);
+    mesh.faces.push_back(1);
+    mesh.faces.push_back(2);
+    mesh.faces.push_back(2);
+    mesh.faces.push_back(3);
+    mesh.faces.push_back(0);
+    
+    addMesh(mesh);
 }
 
 void Rectangle::setWidth(GLfloat width)

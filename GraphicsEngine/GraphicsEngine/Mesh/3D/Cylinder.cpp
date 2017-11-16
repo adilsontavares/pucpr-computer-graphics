@@ -22,14 +22,16 @@ Cylinder::Cylinder(GLfloat radius, GLfloat height, GLuint divisions) : Primitive
 }
 
 void Cylinder::generate()
-{    
+{
+    Mesh mesh;
+    
     const auto h2 = height * 0.5;
     
-    vertices.push_back(Vector3(0, h2, 0));
-    vertices.push_back(Vector3(0, -h2, 0));
+    mesh.vertices.push_back(Vector3(0, h2, 0));
+    mesh.vertices.push_back(Vector3(0, -h2, 0));
     
-    colors.push_back(Color::red());
-    colors.push_back(Color::green());
+    mesh.colors.push_back(Color::red());
+    mesh.colors.push_back(Color::green());
     
     for (GLuint i = 0; i < divisions; ++i)
     {
@@ -37,49 +39,51 @@ void Cylinder::generate()
         auto x = cos(angle) * radius;
         auto z = sin(angle) * radius;
         
-        vertices.push_back(Vector3(x, h2, z));
-        vertices.push_back(Vector3(x, -h2, z));
+        mesh.vertices.push_back(Vector3(x, h2, z));
+        mesh.vertices.push_back(Vector3(x, -h2, z));
         
-        colors.push_back(Color(x * 0.5 + 0.5, 1, z * 0.5 + 0.5));
-        colors.push_back(Color(x * 0.5 + 0.5, 0, z * 0.5 + 0.5));
+        mesh.colors.push_back(Color(x * 0.5 + 0.5, 1, z * 0.5 + 0.5));
+        mesh.colors.push_back(Color(x * 0.5 + 0.5, 0, z * 0.5 + 0.5));
     }
     
-    for (GLuint i = 2; i < vertices.size() - 2; i += 2)
+    for (GLuint i = 2; i < mesh.vertices.size() - 2; i += 2)
     {
-        faces.push_back(i);
-        faces.push_back(i + 1);
-        faces.push_back(i + 2);
+        mesh.faces.push_back(i);
+        mesh.faces.push_back(i + 1);
+        mesh.faces.push_back(i + 2);
         
-        faces.push_back(i + 1);
-        faces.push_back(i + 2);
-        faces.push_back(i + 3);
+        mesh.faces.push_back(i + 1);
+        mesh.faces.push_back(i + 2);
+        mesh.faces.push_back(i + 3);
         
-        faces.push_back(i + 1);
-        faces.push_back(i + 3);
-        faces.push_back(1);
+        mesh.faces.push_back(i + 1);
+        mesh.faces.push_back(i + 3);
+        mesh.faces.push_back(1);
         
-        faces.push_back(i);
-        faces.push_back(i + 2);
-        faces.push_back(0);
+        mesh.faces.push_back(i);
+        mesh.faces.push_back(i + 2);
+        mesh.faces.push_back(0);
     }
     
-    const auto lastIndex = GLuint(vertices.size() - 1);
+    const auto lastIndex = GLuint(mesh.vertices.size() - 1);
     
-    faces.push_back(0);
-    faces.push_back(2);
-    faces.push_back(lastIndex - 1);
+    mesh.faces.push_back(0);
+    mesh.faces.push_back(2);
+    mesh.faces.push_back(lastIndex - 1);
     
-    faces.push_back(2);
-    faces.push_back(lastIndex - 1);
-    faces.push_back(lastIndex - 0);
+    mesh.faces.push_back(2);
+    mesh.faces.push_back(lastIndex - 1);
+    mesh.faces.push_back(lastIndex - 0);
     
-    faces.push_back(2);
-    faces.push_back(3);
-    faces.push_back(lastIndex - 0);
+    mesh.faces.push_back(2);
+    mesh.faces.push_back(3);
+    mesh.faces.push_back(lastIndex - 0);
     
-    faces.push_back(lastIndex);
-    faces.push_back(3);
-    faces.push_back(1);
+    mesh.faces.push_back(lastIndex);
+    mesh.faces.push_back(3);
+    mesh.faces.push_back(1);
+    
+    addMesh(mesh);
 }
 
 void Cylinder::setRadius(GLfloat radius)

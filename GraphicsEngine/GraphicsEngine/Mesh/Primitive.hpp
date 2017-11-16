@@ -20,7 +20,7 @@ public:
 protected:
     
     void reset();
-    virtual void generate() = 0;
+    virtual void generate();
 };
 
 #endif /* Primitive_hpp */

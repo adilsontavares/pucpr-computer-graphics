@@ -35,13 +35,13 @@ void Triangle::generate()
     {
         GLfloat angle = (i / GLfloat(count)) * 2 * M_PI + M_PI_2;
         
-        vertices.push_back(Vector3(cos(angle) * radius, sin(angle) * radius, 0));
-        faces.push_back(i);
+        mesh.vertices.push_back(Vector3(cos(angle) * radius, sin(angle) * radius, 0));
+        mesh.faces.push_back(i);
     }
     
-    colors.push_back(Color::red());
-    colors.push_back(Color::green());
-    colors.push_back(Color::blue());
+    mesh.colors.push_back(Color::red());
+    mesh.colors.push_back(Color::green());
+    mesh.colors.push_back(Color::blue());
     
     addMesh(mesh);
 }

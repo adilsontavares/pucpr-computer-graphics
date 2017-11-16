@@ -41,25 +41,29 @@ GLuint Circle::getDivisions()
 
 void Circle::generate()
 {
-    vertices.push_back(Vector3(0, 0, 0));
-    colors.push_back(Color::red());
+    Mesh mesh;
+    
+    mesh.vertices.push_back(Vector3(0, 0, 0));
+    mesh.colors.push_back(Color::red());
     
     for (GLuint i = 0; i < divisions; ++i)
     {
         GLfloat angle = (GLfloat(i) / divisions) * 2 * M_PI;
-        vertices.push_back(Vector3(cos(angle) * radius, sin(angle) * radius, 0));
+        mesh.vertices.push_back(Vector3(cos(angle) * radius, sin(angle) * radius, 0));
         
-        colors.push_back(Color(cos(angle) * 0.5 + 0.5, 0, sin(angle) * 0.5 + 0.5));
+        mesh.colors.push_back(Color(cos(angle) * 0.5 + 0.5, 0, sin(angle) * 0.5 + 0.5));
     }
     
-    for (GLuint i = 1; i < vertices.size() - 1; ++i)
+    for (GLuint i = 1; i < mesh.vertices.size() - 1; ++i)
     {
-        faces.push_back(i);
-        faces.push_back(i + 1);
-        faces.push_back(0);
+        mesh.faces.push_back(i);
+        mesh.faces.push_back(i + 1);
+        mesh.faces.push_back(0);
     }
     
-    faces.push_back(GLuint(vertices.size()) - 1);
-    faces.push_back(1);
-    faces.push_back(0);
+    mesh.faces.push_back(GLuint(mesh.vertices.size()) - 1);
+    mesh.faces.push_back(1);
+    mesh.faces.push_back(0);
+    
+    addMesh(mesh);
 }

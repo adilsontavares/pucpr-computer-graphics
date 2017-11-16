@@ -33,6 +33,8 @@ Box::Box(GLfloat width, GLfloat height, GLfloat depth) : Primitive()
 
 void Box::generate()
 {
+    Mesh mesh;
+    
     auto w2 = width * 0.5;
     auto h2 = height * 0.5;
     auto d2 = depth * 0.5;
@@ -92,9 +94,11 @@ void Box::generate()
         Color::blue()
     };
     
-    setVertices(vertices, 8);
-    setColors(colors, 8);
-    setFaces(faces, 36);
+    mesh.setVertices(vertices, 8);
+    mesh.setColors(colors, 8);
+    mesh.setFaces(faces, 36);
+    
+    addMesh(mesh);
 }
 
 void Box::setWidth(GLfloat width)

@@ -65,10 +65,6 @@ public:
     void assertVector3(const char *path);
     
     GLboolean hasProperty(const char *path);
-    
-private:
-    
-    MeshNode *createMeshNode(Mesh *mesh);
 };
 
 #endif /* DisplayFileObject_hpp */

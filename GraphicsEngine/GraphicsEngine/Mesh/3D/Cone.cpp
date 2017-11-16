@@ -22,14 +22,16 @@ Cone::Cone(GLfloat radius, GLfloat height, GLuint divisions) : Primitive()
 
 void Cone::generate()
 {
+    Mesh mesh;
+    
     auto top = Vector3(0, height * 0.5, 0);
     auto base = Vector3(0, -height * 0.5, 0);
     
-    vertices.push_back(top);
-    vertices.push_back(base);
+    mesh.vertices.push_back(top);
+    mesh.vertices.push_back(base);
     
-    colors.push_back(Color::green());
-    colors.push_back(Color::blue());
+    mesh.colors.push_back(Color::green());
+    mesh.colors.push_back(Color::blue());
     
     for (int i = 0; i < divisions; ++i)
     {
@@ -38,29 +40,31 @@ void Cone::generate()
         auto sine = sin(angle);
         
         auto vertice = base + Vector3(cosine * radius, 0, sine * radius);
-        vertices.push_back(vertice);
+        mesh.vertices.push_back(vertice);
         
-        colors.push_back(Color(sine * 0.5 + 0.5, 0, 0));
+        mesh.colors.push_back(Color(sine * 0.5 + 0.5, 0, 0));
     }
     
     for (GLuint i = 1; i < divisions; ++i)
     {
-        faces.push_back(0);
-        faces.push_back(i + 1);
-        faces.push_back(i + 2);
+        mesh.faces.push_back(0);
+        mesh.faces.push_back(i + 1);
+        mesh.faces.push_back(i + 2);
         
-        faces.push_back(i + 2);
-        faces.push_back(i + 1);
-        faces.push_back(1);
+        mesh.faces.push_back(i + 2);
+        mesh.faces.push_back(i + 1);
+        mesh.faces.push_back(1);
     }
     
-    faces.push_back(0);
-    faces.push_back(2);
-    faces.push_back(GLuint(vertices.size() - 1));
+    mesh.faces.push_back(0);
+    mesh.faces.push_back(2);
+    mesh.faces.push_back(GLuint(mesh.vertices.size() - 1));
     
-    faces.push_back(GLuint(vertices.size() - 1));
-    faces.push_back(2);
-    faces.push_back(1);
+    mesh.faces.push_back(GLuint(mesh.vertices.size() - 1));
+    mesh.faces.push_back(2);
+    mesh.faces.push_back(1);
+    
+    addMesh(mesh);
 }
 
 void Cone::setDivisions(GLuint divisions)

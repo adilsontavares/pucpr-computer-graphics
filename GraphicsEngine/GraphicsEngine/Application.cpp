@@ -72,7 +72,10 @@ void Application::update()
     for (auto node : nodes)
     {
         if (node != camera)
+        {
+            node->setRotation(Vector3(0, node->getRotation().y + 0.01, 0));
             node->update(0);
+        }
     }
 }
 

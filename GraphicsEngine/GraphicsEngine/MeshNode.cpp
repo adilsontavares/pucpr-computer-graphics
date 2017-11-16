@@ -21,6 +21,11 @@ MeshNode::MeshNode(Mesh mesh) : MeshNode()
     addMesh(mesh);
 }
 
+void MeshNode::removeAllMeshes()
+{
+    meshes.clear();
+}
+
 MeshNode *MeshNode::create(DisplayFileObject *config)
 {
     auto node = new MeshNode();
@@ -31,10 +36,7 @@ MeshNode *MeshNode::create(DisplayFileObject *config)
 
 void MeshNode::addMesh(Mesh mesh)
 {
-    if (!mesh)
-        return;
-    
-    mesh->assertConsistency();
+    mesh.assertConsistency();
     meshes.push_back(mesh);
 }
 
@@ -44,17 +46,17 @@ void MeshNode::update(GLfloat delta)
 
 void MeshNode::updateBuffers()
 {
-    for (auto mesh : meshes)
+    for (auto it = meshes.begin(); it != meshes.end(); ++it)
     {
-        mesh->updateBuffers(program);
-        mesh->setDirty(false);
+        it->updateBuffers(program);
+        it->setDirty(false);
     }
 }
 
 GLboolean MeshNode::isDirty()
 {
-    for (auto mesh : meshes)
-        if (mesh->isDirty())
+    for (auto it = meshes.begin(); it != meshes.end(); ++it)
+        if (it->isDirty())
             return true;
             
     return false;
@@ -71,8 +73,8 @@ void MeshNode::draw(glm::mat4 base)
         
         program->begin();
         
-        for (auto mesh : meshes)
-            mesh->render();
+        for (auto it = meshes.begin(); it != meshes.end(); ++it)
+            it->render();
         
         program->end();
     }
