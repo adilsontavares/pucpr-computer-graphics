@@ -2,6 +2,7 @@
     {
         "type": "cylinder",
         "radius": 1,
-        "height": 2
+        "height": 2,
+        "rotation": "30,0,0"
     }
 ]

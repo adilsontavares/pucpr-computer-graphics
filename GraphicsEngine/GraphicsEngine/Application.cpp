@@ -73,7 +73,7 @@ void Application::update()
     {
         if (node != camera)
         {
-            node->setRotation(Vector3(0, node->getRotation().y + 0.01, 0));
+//            node->setRotation(node->getRotation() + Vector3(0, 0.01, 0));
             node->update(0);
         }
     }
@@ -135,9 +135,9 @@ void Application::setupGL()
     glEnable(GL_POLYGON_SMOOTH_HINT);
     glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
     
-//    glEnable(GL_CULL_FACE);
-//    glCullFace(GL_FRONT);
-//    glFrontFace(GL_CW);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_FRONT);
+    glFrontFace(GL_CW);
 }
 
 void Application::addChild(Node *node)
