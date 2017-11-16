@@ -12,14 +12,11 @@
 
 MeshNode::MeshNode() : RenderNode()
 {
-    glGenVertexArrays(1, &arrayId);
-    glBindVertexArray(arrayId);
-    
     matrix = new glm::mat4(1);
     program->setUniform("MVP", matrix, ShaderArgument::Type::MATRIX4);
 }
 
-MeshNode::MeshNode(Mesh *mesh) : MeshNode()
+MeshNode::MeshNode(Mesh mesh) : MeshNode()
 {
     addMesh(mesh);
 }
@@ -32,13 +29,12 @@ MeshNode *MeshNode::create(DisplayFileObject *config)
     return node;
 }
 
-void MeshNode::addMesh(Mesh *mesh)
+void MeshNode::addMesh(Mesh mesh)
 {
     if (!mesh)
         return;
     
     mesh->assertConsistency();
-    
     meshes.push_back(mesh);
 }
 

@@ -9,9 +9,9 @@
 #ifndef Primitive_hpp
 #define Primitive_hpp
 
-#include "Mesh.hpp"
+#include "MeshNode.hpp"
 
-class Primitive : public Mesh
+class Primitive : public MeshNode
 {
 public:
     

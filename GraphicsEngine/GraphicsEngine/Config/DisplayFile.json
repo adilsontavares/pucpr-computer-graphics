@@ -6,9 +6,8 @@
         "depth": 5,
         "position": "-3,0,0",
         "rotation": "45,45,0",
-        "scale": "1,1,1",
         "color": "#ff0000",
-        "visible": "true"
+        "visible": true
     },
     {
         "type": "cube",

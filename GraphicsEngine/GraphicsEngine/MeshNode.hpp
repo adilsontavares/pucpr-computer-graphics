@@ -19,13 +19,13 @@ class MeshNode : public RenderNode
 public:
     
     MeshNode();
-    MeshNode(Mesh *mesh);
+    MeshNode(Mesh mesh);
     
-    void addMesh(Mesh *mesh);
-    void removeMesh(Mesh *mesh);
+    void addMesh(Mesh mesh);
+    void removeMesh(Mesh mesh);
     void removeAllMeshes();
     
-    std::vector<Mesh*> meshes;
+    std::vector<Mesh> meshes;
   
     virtual void update(GLfloat delta);
     virtual void draw(glm::mat4 base);
@@ -37,7 +37,6 @@ public:
 private:
     
     glm::mat4 *matrix;
-    GLuint arrayId;
     
     void updateBuffers();
 };

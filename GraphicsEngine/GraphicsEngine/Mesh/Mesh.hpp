@@ -28,6 +28,8 @@ public:
     std::vector<GLuint> faces;
     std::vector<Color> colors;
     
+    Color baseColor;
+    
     void setVertices(Vector3 *vertices, GLuint count);
     void setFaces(GLuint *faces, GLuint count);
     void setColors(Color *colors, GLuint count);
@@ -49,6 +51,7 @@ public:
     
 protected:
     
+    GLuint arrayId;
     GLuint vertexBuffer;
     GLuint colorBuffer;
     GLuint elementBuffer;

@@ -28,6 +28,8 @@ GLfloat Triangle::getRadius()
 
 void Triangle::generate()
 {
+    Mesh mesh;
+    
     const GLuint count = 3;
     for (GLuint i = 0; i < count; ++i)
     {
@@ -40,4 +42,6 @@ void Triangle::generate()
     colors.push_back(Color::red());
     colors.push_back(Color::green());
     colors.push_back(Color::blue());
+    
+    addMesh(mesh);
 }

@@ -56,7 +56,13 @@ Node *DisplayFileObject::instantiate()
 //        case CIRCLE: return createMeshNode(new Circle(this));
 //        case TRIANGLE: return createMeshNode(new Triangle(this));
 //
-        case BOX: return createMeshNode(Box::create(this));
+        case BOX:
+        {
+            auto node = MeshNode::create(this);
+            node->addMesh(Box::create(this));
+            return node;
+        }
+            
         case CUBE: return createMeshNode(Cube::create(this));
 //        case CYLINDER: return createMeshNode(new Cylinder(this));
         case SPHERE: return createMeshNode(Sphere::create(this));

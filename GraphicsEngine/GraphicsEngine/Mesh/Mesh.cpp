@@ -15,6 +15,9 @@ Mesh::Mesh()
     drawMode = GL_TRIANGLES;
     dirty = false;
     
+    baseColor = Color::white();
+    
+    glGenVertexArrays(1, &arrayId);
     glGenBuffers(1, &vertexBuffer);
     glGenBuffers(1, &elementBuffer);
     glGenBuffers(1, &colorBuffer);
@@ -22,23 +25,26 @@ Mesh::Mesh()
 
 void Mesh::updateBuffers(ShaderProgram *program)
 {
+    glBindVertexArray(arrayId);
+    
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * 3 * sizeof(vertices[0]), vertices.data(), GL_DYNAMIC_DRAW);
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, faces.size() * sizeof(faces[0]), faces.data(), GL_DYNAMIC_DRAW);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
     glBufferData(GL_ARRAY_BUFFER, colors.size() * sizeof(colors[0]), colors.data(), GL_DYNAMIC_DRAW);
     
+    program->setUniform("baseColor", &baseColor, ShaderArgument::Type::COLOR);
     program->setAttribute("position", &vertices[0], GLuint(vertices.size()), ShaderArgument::Type::VECTOR3);
-    program->setAttribute("vertexColor", &colors[0], GLuint(colors.size()), ShaderArgument::Type::COLOR);
+    program->setAttribute("vertexColor", &colors[0], GLuint(colors.size()), ShaderArgument::Type::COLOR);    
 }
 
 void Mesh::render()
 {
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer);
-    glDrawElements(drawMode, GLsizei(faces.size()), GL_UNSIGNED_INT, 0);
+    glBindVertexArray(arrayId);
+    glDrawElementsBaseVertex(drawMode, GLsizei(faces.size()), GL_UNSIGNED_INT, 0, 0);
 }
 
 void Mesh::setName(const std::string &name)
