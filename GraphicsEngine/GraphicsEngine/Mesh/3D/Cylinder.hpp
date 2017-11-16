@@ -25,6 +25,8 @@ public:
     GLfloat getHeight();
     GLuint getDivisions();
     
+    static Cylinder *create(DisplayFileObject *config);
+    
 protected:
     
     GLfloat radius;

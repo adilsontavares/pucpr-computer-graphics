@@ -10,7 +10,6 @@
 
 Primitive::Primitive()
 {
-    reset();
 }
 
 void Primitive::generate()

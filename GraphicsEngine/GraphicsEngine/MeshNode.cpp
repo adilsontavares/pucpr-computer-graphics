@@ -37,6 +37,8 @@ MeshNode *MeshNode::create(DisplayFileObject *config)
 void MeshNode::addMesh(Mesh mesh)
 {
     mesh.assertConsistency();
+    mesh.setDirty(true);
+    
     meshes.push_back(mesh);
 }
 

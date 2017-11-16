@@ -66,7 +66,10 @@ Node *DisplayFileObject::instantiate()
             node = Cube::create(this);
             break;
             
-//        case CYLINDER: return createMeshNode(new Cylinder(this));
+        case CYLINDER:
+            node = Cylinder::create(this);
+            break;
+            
         case SPHERE:
             node = Sphere::create(this);
             break;
@@ -121,7 +124,7 @@ void DisplayFileObject::assertInt(const char *path)
 
 void DisplayFileObject::assertFloat(const char *path)
 {
-    assert(value.HasMember(path) && value[path].IsInt());
+    assert(value.HasMember(path) && (value[path].IsInt() || value[path].IsFloat()));
 }
 
 void DisplayFileObject::assertColor(const char *path)

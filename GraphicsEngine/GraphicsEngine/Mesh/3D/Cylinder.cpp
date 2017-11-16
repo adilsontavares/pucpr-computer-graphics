@@ -21,6 +21,22 @@ Cylinder::Cylinder(GLfloat radius, GLfloat height, GLuint divisions) : Primitive
     reset();
 }
 
+Cylinder *Cylinder::create(DisplayFileObject *config)
+{
+    config->assertFloat("radius");
+    config->assertFloat("height");
+    
+    GLfloat radius = config->getFloat("radius");
+    GLfloat height = config->getFloat("height");
+    
+    GLuint divisions = 8;
+    
+    if (config->hasProperty("divisions"))
+        divisions = config->getFloat("divisions");
+    
+    return new Cylinder(radius, height, divisions);
+}
+
 void Cylinder::generate()
 {
     Mesh mesh;
