@@ -23,6 +23,14 @@ Mesh::Mesh()
     glGenBuffers(1, &colorBuffer);
 }
 
+Mesh::~Mesh()
+{
+//    glDeleteVertexArrays(1, &arrayId);
+//    glDeleteBuffers(1, &vertexBuffer);
+//    glDeleteBuffers(1, &elementBuffer);
+//    glDeleteBuffers(1, &colorBuffer);
+}
+
 void Mesh::updateBuffers(ShaderProgram *program)
 {
     glBindVertexArray(arrayId);

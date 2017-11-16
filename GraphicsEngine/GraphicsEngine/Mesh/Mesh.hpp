@@ -22,6 +22,7 @@ class Mesh
 public:
     
     Mesh();
+    ~Mesh();
     
     std::string name;
     std::vector<Vector3> vertices;

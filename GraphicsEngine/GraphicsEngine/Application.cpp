@@ -135,7 +135,9 @@ void Application::setupGL()
     glEnable(GL_POLYGON_SMOOTH_HINT);
     glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
     
-//    glEnable(GL_MULTISAMPLE);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_FRONT);
+    glFrontFace(GL_CW);
 }
 
 void Application::addChild(Node *node)
