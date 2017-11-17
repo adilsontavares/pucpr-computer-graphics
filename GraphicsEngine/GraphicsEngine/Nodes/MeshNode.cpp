@@ -68,17 +68,17 @@ void MeshNode::draw(glm::mat4 base)
 {
     if (!meshes.empty() && program)
     {
-        if (isDirty())
-            updateBuffers();
-        
-        *matrix = base * getMatrix();
-        
-        program->begin();
-        
         for (auto it = meshes.begin(); it != meshes.end(); ++it)
+        {
+            if (it->isDirty())
+                it->updateBuffers(program);
+            
+            *matrix = base * getMatrix();
+            
+            program->begin();
             it->render();
-        
-        program->end();
+            program->end();
+        }
     }
     
     Node::draw(base);

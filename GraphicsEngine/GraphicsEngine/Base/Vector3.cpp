@@ -14,6 +14,13 @@ Vector3::Vector3()
     x = y = z = 0;
 }
 
+Vector3::Vector3(glm::vec3 vec)
+{
+    x = vec.r;
+    y = vec.g;
+    z = vec.b;
+}
+
 Vector3::Vector3(GLfloat v)
 {
     x = y = z = v;

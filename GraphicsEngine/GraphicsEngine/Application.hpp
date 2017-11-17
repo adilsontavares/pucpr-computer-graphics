@@ -16,12 +16,10 @@
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
+#include <ctime>
 
 #include "Size.hpp"
-#include "Node.hpp"
-#include "Camera.hpp"
-#include "Cone.hpp"
-#include "MeshNode.hpp"
+#include "Scene.hpp"
 
 class Application
 {
@@ -32,14 +30,15 @@ public:
     Application(std::string title, int width, int height);
     ~Application();
     
-    void addChild(Node *node);
-    void removeChild(Node *node);
+    GLFWwindow *getMainWindow();
+    
+    static Application *main;
     
 private:
     
-    Camera *camera;
+    Scene *scene;
     
-    std::vector<Node*> nodes;
+    std::chrono::time_point<std::chrono::steady_clock> oldTime;
     
     Size windowSize;
     std::string windowTitle;
@@ -50,13 +49,16 @@ private:
     void createWindow();
     void setupGlew();
     void setupGL();
-    void setupNodes();
-    void setupCamera();
+    void setupInputs();
+    void setupScene();
     
     void mainLoop();
     
     void update();
     void render();
+    
+    static void handleKey(GLFWwindow *window, int key, int scancode, int action, int mods);
+    static void handleWindowResize(GLFWwindow *window, int width, int height);
 };
 
 #endif /* Application_hpp */

@@ -11,6 +11,8 @@
 int main(int argc, const char * argv[])
 {
     auto app = new Application("OpenGL Application", 800, 600);
+    Application::main = app;
+    
     app->run();
     
     delete app;

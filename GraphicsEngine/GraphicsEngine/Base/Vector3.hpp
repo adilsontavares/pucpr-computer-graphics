@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <GL/glew.h>
+#include <glm/glm.hpp>
 
 class Vector3
 {
@@ -21,6 +22,7 @@ public:
     GLfloat z;
     
     Vector3();
+    Vector3(glm::vec3 vec);
     Vector3(GLfloat v);
     Vector3(GLfloat x, GLfloat y, GLfloat z);
     Vector3(const char *str);

@@ -18,6 +18,8 @@
 		BBA8961D1FB251B200A8716F /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBA8961B1FB251B200A8716F /* Triangle.cpp */; };
 		BBA896231FB2548A00A8716F /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBA896211FB2548A00A8716F /* LineNode.cpp */; };
 		BBA896261FB2589400A8716F /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBA896241FB2589400A8716F /* Camera.cpp */; };
+		BBB120691FBE784A00289BD7 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBB120671FBE784A00289BD7 /* Scene.cpp */; };
+		BBB1206C1FBE7A4E00289BD7 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBB1206A1FBE7A4E00289BD7 /* MainScene.cpp */; };
 		BBCB42801FAD07570050C4E1 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = BBCB427F1FAD07570050C4E1 /* main.mm */; };
 		BBCB42891FAD07700050C4E1 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB42881FAD07700050C4E1 /* libGLEW.a */; };
 		BBCB428B1FAD077B0050C4E1 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCB428A1FAD077B0050C4E1 /* libglfw3.a */; };
@@ -87,6 +89,10 @@
 		BBA896241FB2589400A8716F /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		BBA896251FB2589400A8716F /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
 		BBA896271FB25AE100A8716F /* Math.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Math.hpp; sourceTree = "<group>"; };
+		BBB120671FBE784A00289BD7 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		BBB120681FBE784A00289BD7 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
+		BBB1206A1FBE7A4E00289BD7 /* MainScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainScene.cpp; sourceTree = "<group>"; };
+		BBB1206B1FBE7A4E00289BD7 /* MainScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainScene.hpp; sourceTree = "<group>"; };
 		BBCB427C1FAD07570050C4E1 /* GraphicsEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GraphicsEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBCB427F1FAD07570050C4E1 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		BBCB42871FAD07610050C4E1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -205,6 +211,67 @@
 			path = 2D;
 			sourceTree = "<group>";
 		};
+		BBB1206D1FBE7A5600289BD7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BBB1206A1FBE7A4E00289BD7 /* MainScene.cpp */,
+				BBB1206B1FBE7A4E00289BD7 /* MainScene.hpp */,
+				BBB120671FBE784A00289BD7 /* Scene.cpp */,
+				BBB120681FBE784A00289BD7 /* Scene.hpp */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BBB1206E1FBE7A6F00289BD7 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				BBCB42AC1FAD1F060050C4E1 /* Node.cpp */,
+				BBCB42AD1FAD1F060050C4E1 /* Node.hpp */,
+				BB7131AD1FAE682200481B94 /* RenderNode.cpp */,
+				BB7131AE1FAE682200481B94 /* RenderNode.hpp */,
+				BBCB42B21FAD212C0050C4E1 /* MeshNode.cpp */,
+				BBCB42B31FAD212C0050C4E1 /* MeshNode.hpp */,
+				BB7131AA1FAE67BD00481B94 /* PointNode.cpp */,
+				BB7131AB1FAE67BE00481B94 /* PointNode.hpp */,
+				BBA896211FB2548A00A8716F /* LineNode.cpp */,
+				BBA896221FB2548A00A8716F /* LineNode.hpp */,
+				BBA896241FB2589400A8716F /* Camera.cpp */,
+				BBA896251FB2589400A8716F /* Camera.hpp */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		BBB1206F1FBE7A8500289BD7 /* Shading */ = {
+			isa = PBXGroup;
+			children = (
+				BBCB429F1FAD14F60050C4E1 /* Shader.cpp */,
+				BBCB42A01FAD14F60050C4E1 /* Shader.hpp */,
+				BBCB42A61FAD1B090050C4E1 /* FragmentShader.cpp */,
+				BBCB42A71FAD1B090050C4E1 /* FragmentShader.hpp */,
+				BBCB42A91FAD1B110050C4E1 /* VertexShader.cpp */,
+				BBCB42AA1FAD1B110050C4E1 /* VertexShader.hpp */,
+				BBCB42A31FAD19E90050C4E1 /* ShaderProgram.cpp */,
+				BBCB42A41FAD19E90050C4E1 /* ShaderProgram.hpp */,
+				BBD184951FB53B09009F2FA4 /* ShaderArgument.cpp */,
+				BBD184961FB53B09009F2FA4 /* ShaderArgument.hpp */,
+			);
+			path = Shading;
+			sourceTree = "<group>";
+		};
+		BBB120701FBE7A9D00289BD7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BBA896271FB25AE100A8716F /* Math.hpp */,
+				BBCB42921FAD0BC50050C4E1 /* Size.hpp */,
+				BBCB42B51FAD246A0050C4E1 /* Vector3.cpp */,
+				BBCB42B61FAD246A0050C4E1 /* Vector3.hpp */,
+				BBCB429A1FAD108D0050C4E1 /* File.hpp */,
+				BBCB42B81FAD47E10050C4E1 /* Color.cpp */,
+				BBCB42B91FAD47E10050C4E1 /* Color.hpp */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		BBCB42731FAD07570050C4E1 = {
 			isa = PBXGroup;
 			children = (
@@ -228,40 +295,13 @@
 				BBCB427F1FAD07570050C4E1 /* main.mm */,
 				BBCB428F1FAD08120050C4E1 /* Application.cpp */,
 				BBCB42901FAD08120050C4E1 /* Application.hpp */,
-				BBCB42921FAD0BC50050C4E1 /* Size.hpp */,
-				BBCB42B51FAD246A0050C4E1 /* Vector3.cpp */,
-				BBCB42B61FAD246A0050C4E1 /* Vector3.hpp */,
-				BBCB429A1FAD108D0050C4E1 /* File.hpp */,
-				BBCB42B81FAD47E10050C4E1 /* Color.cpp */,
-				BBCB42B91FAD47E10050C4E1 /* Color.hpp */,
-				BBCB429F1FAD14F60050C4E1 /* Shader.cpp */,
-				BBCB42A01FAD14F60050C4E1 /* Shader.hpp */,
-				BBCB42A61FAD1B090050C4E1 /* FragmentShader.cpp */,
-				BBCB42A71FAD1B090050C4E1 /* FragmentShader.hpp */,
-				BBCB42A91FAD1B110050C4E1 /* VertexShader.cpp */,
-				BBCB42AA1FAD1B110050C4E1 /* VertexShader.hpp */,
-				BBCB42A31FAD19E90050C4E1 /* ShaderProgram.cpp */,
-				BBCB42A41FAD19E90050C4E1 /* ShaderProgram.hpp */,
-				BBD184951FB53B09009F2FA4 /* ShaderArgument.cpp */,
-				BBD184961FB53B09009F2FA4 /* ShaderArgument.hpp */,
-				BBCB42AC1FAD1F060050C4E1 /* Node.cpp */,
-				BBCB42AD1FAD1F060050C4E1 /* Node.hpp */,
-				BB7131AD1FAE682200481B94 /* RenderNode.cpp */,
-				BB7131AE1FAE682200481B94 /* RenderNode.hpp */,
-				BBCB42B21FAD212C0050C4E1 /* MeshNode.cpp */,
-				BBCB42B31FAD212C0050C4E1 /* MeshNode.hpp */,
-				BB7131AA1FAE67BD00481B94 /* PointNode.cpp */,
-				BB7131AB1FAE67BE00481B94 /* PointNode.hpp */,
-				BBA896211FB2548A00A8716F /* LineNode.cpp */,
-				BBA896221FB2548A00A8716F /* LineNode.hpp */,
-				BBA896241FB2589400A8716F /* Camera.cpp */,
-				BBA896251FB2589400A8716F /* Camera.hpp */,
-				BBA896271FB25AE100A8716F /* Math.hpp */,
-				BB171DD41FBB3E060058C331 /* Primitives2D.h */,
-				BB171DD51FBB3E100058C331 /* Primitives3D.h */,
+				BBB1206D1FBE7A5600289BD7 /* Scenes */,
+				BBB120701FBE7A9D00289BD7 /* Base */,
+				BBB1206E1FBE7A6F00289BD7 /* Nodes */,
+				BBB1206F1FBE7A8500289BD7 /* Shading */,
 				BB171DD61FBB505E0058C331 /* Config */,
 				BB171DD31FBB38A00058C331 /* Display file */,
-				BBCB42C11FAD5D6A0050C4E1 /* Mesh */,
+				BBCB42C11FAD5D6A0050C4E1 /* Drawing */,
 				BBCB42A21FAD19C90050C4E1 /* Shaders */,
 			);
 			path = GraphicsEngine;
@@ -290,9 +330,11 @@
 			path = Shaders;
 			sourceTree = "<group>";
 		};
-		BBCB42C11FAD5D6A0050C4E1 /* Mesh */ = {
+		BBCB42C11FAD5D6A0050C4E1 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
+				BB171DD41FBB3E060058C331 /* Primitives2D.h */,
+				BB171DD51FBB3E100058C331 /* Primitives3D.h */,
 				BBCB42AF1FAD1F300050C4E1 /* Mesh.cpp */,
 				BBCB42B01FAD1F300050C4E1 /* Mesh.hpp */,
 				BBCB42C81FAD5EF50050C4E1 /* Primitive.cpp */,
@@ -300,7 +342,7 @@
 				BB63E3851FB100DD0022E530 /* 2D */,
 				BB63E3841FB100CC0022E530 /* 3D */,
 			);
-			path = Mesh;
+			path = Drawing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,12 +413,14 @@
 				BBCB42CD1FAD65780050C4E1 /* Sphere.cpp in Sources */,
 				BBCB42A51FAD19E90050C4E1 /* ShaderProgram.cpp in Sources */,
 				BBD184971FB53B09009F2FA4 /* ShaderArgument.cpp in Sources */,
+				BBB1206C1FBE7A4E00289BD7 /* MainScene.cpp in Sources */,
 				BBCB42AE1FAD1F060050C4E1 /* Node.cpp in Sources */,
 				BBCB42CA1FAD5EF50050C4E1 /* Primitive.cpp in Sources */,
 				BBCB42A81FAD1B090050C4E1 /* FragmentShader.cpp in Sources */,
 				BBA896231FB2548A00A8716F /* LineNode.cpp in Sources */,
 				BB171DD21FBB389B0058C331 /* DisplayFileObject.cpp in Sources */,
 				BBCB42911FAD08120050C4E1 /* Application.cpp in Sources */,
+				BBB120691FBE784A00289BD7 /* Scene.cpp in Sources */,
 				BBCB42A11FAD14F60050C4E1 /* Shader.cpp in Sources */,
 				BB7131AF1FAE682200481B94 /* RenderNode.cpp in Sources */,
 				BB63E38E1FB1037A0022E530 /* Circle.cpp in Sources */,

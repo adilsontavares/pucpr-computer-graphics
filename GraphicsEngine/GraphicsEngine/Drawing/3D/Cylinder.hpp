@@ -34,6 +34,10 @@ protected:
     GLuint divisions;
     
     virtual void generate();
+    
+    void generateTop();
+    void generateBottom();
+    void generateBody();
 };
 
 #endif /* Cylinder_hpp */

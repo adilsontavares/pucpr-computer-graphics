@@ -114,16 +114,10 @@ void Mesh::clear()
 
 void Mesh::assertConsistency()
 {
-    if (faces.size() % 3 != 0)
-    {
-        printf("Mesh face count (%d) must multiple of 3.\n", GLsizei(faces.size()));
-        assert(false);
-    }
-    
     if (faces.empty())
     {
-        printf("Mesh face count (%d) must not be zero.\n", GLsizei(faces.size()));
-        assert(false);
+        for (GLuint i = 0; i < vertices.size(); ++i)
+            faces.push_back(i);
     }
     
     if (vertices.empty())

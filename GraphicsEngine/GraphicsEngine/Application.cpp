@@ -10,14 +10,20 @@
 #include <cassert>
 #include "File.hpp"
 #include "FragmentShader.hpp"
-#include "DisplayFile.hpp"
+#include "MainScene.hpp"
 
 using namespace std;
 
+Application *Application::main;
+
+void Application::setupScene()
+{
+    scene = new MainScene();
+    scene->init();
+}
+
 Application::Application(string title, int width, int height)
 {
-    camera = 0;
-    
     windowTitle = title;
     windowSize = Size(width, height);
     
@@ -33,6 +39,8 @@ void Application::init()
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_SAMPLES, 4);
+    
+    oldTime = std::chrono::steady_clock::now();
 }
 
 void Application::run()
@@ -40,54 +48,65 @@ void Application::run()
     createWindow();
     setupGlew();
     setupGL();
-    setupCamera();
-    setupNodes();
+    setupScene();
+    setupInputs();
     
     mainLoop();
 }
 
-void Application::setupCamera()
+void Application::setupInputs()
 {
-    camera = new Camera();
-    camera->setAspectRatio(windowSize.width / windowSize.height);
-    camera->setPosition(Vector3(0, 0, 10));
-    camera->lookAt(Vector3());
-    addChild(camera);
+    glfwSetKeyCallback(window, Application::handleKey);
 }
 
-void Application::setupNodes()
+GLFWwindow *Application::getMainWindow()
 {
-    auto file = DisplayFile("assets/DisplayFile.json");
-    auto objects = file.getObjects();
+    return window;
+}
+
+void Application::handleKey(GLFWwindow *window, int key, int scancode, int action, int mods)
+{
+    auto scene = Application::main->scene;
     
-    for (auto object : objects)
-    {
-        auto node = object->instantiate();
-        addChild(node);
-    }
+    if (!scene)
+        return;
+    
+    if (action == GLFW_PRESS)
+        scene->onKeyDown(key);
+    else if (action == GLFW_RELEASE)
+        scene->onKeyUp(key);
+    else if (action == GLFW_REPEAT)
+        scene->onKeyRepeat(key);
 }
 
-void Application::update()
+void Application::handleWindowResize(GLFWwindow *window, int width, int height)
 {
-    for (auto node : nodes)
-    {
-        if (node != camera)
-        {
-//            node->setRotation(node->getRotation() + Vector3(0, 0.01, 0));
-            node->update(0);
-        }
-    }
+    auto app = Application::main;
+    app->windowSize = Size(width, height);
 }
 
 void Application::render()
 {
-    if (!camera)
+    if (!scene)
         return;
     
-    glm::mat4 base = camera->getMatrix();
+    if (scene->mainCamera)
+        scene->mainCamera->setAspectRatio(windowSize.width / windowSize.height);
+        
+    scene->render(glm::mat4(1));
+}
+
+void Application::update()
+{
+    if (!scene)
+        return;
     
-    for (auto node : nodes)
-        node->draw(base);
+    auto time = std::chrono::steady_clock::now();
+    auto delta = std::chrono::duration_cast<std::chrono::duration<double>>(time - oldTime).count();
+
+    scene->update(delta);
+    
+    oldTime = time;
 }
 
 void Application::mainLoop()
@@ -116,6 +135,7 @@ void Application::createWindow()
     assert(window);
     
     glfwMakeContextCurrent(window);
+    glfwSetWindowSizeCallback(window, Application::handleWindowResize);
 }
 
 void Application::setupGlew()
@@ -135,18 +155,9 @@ void Application::setupGL()
     glEnable(GL_POLYGON_SMOOTH_HINT);
     glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
     
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_FRONT);
-    glFrontFace(GL_CW);
-}
-
-void Application::addChild(Node *node)
-{
-    nodes.push_back(node);
-}
-
-void Application::removeChild(Node *node)
-{
+//    glEnable(GL_CULL_FACE);
+//    glCullFace(GL_FRONT);
+//    glFrontFace(GL_CW);
 }
 
 Application::~Application()

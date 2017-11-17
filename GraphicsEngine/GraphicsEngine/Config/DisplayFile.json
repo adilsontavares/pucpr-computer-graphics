@@ -1,8 +1,8 @@
 [
     {
-        "type": "cylinder",
-        "radius": 1,
-        "height": 2,
-        "rotation": "30,0,0"
+        "type": "sphere",
+        "radius": 2,
+        "rotation": "30,0,0",
+        "divisions": 9
     }
 ]

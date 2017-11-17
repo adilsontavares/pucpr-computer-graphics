@@ -77,6 +77,10 @@ Node *DisplayFileObject::instantiate()
 //
 //        case LINE: return new LineNode(this);
 //        case POINT: return new PointNode(this);
+            
+        default:
+            assert(false);
+            break;
     }
     
     assert(node);
